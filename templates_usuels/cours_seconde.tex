@@ -1,0 +1,679 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages Ecriture
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier}
+\usepackage[scaled=0.875]{helvet} 
+\renewcommand{\ttdefault}{lmtt} 
+\usepackage{eurosym}
+\usepackage[frenchb]{babel}
+\usepackage[np]{numprint}
+\usepackage{xcolor} %permet d'utiliser les couleurs RGB de 0 à 255
+%\usepackage{color} %permet d'utiliser les couleurs RGB pour des réels compris entre 0 et 1 
+
+% Packages Mise en page
+\usepackage{geometry} % Permet la mise en page
+\geometry{lmargin=2cm,rmargin=2cm,tmargin=2cm,bmargin=1.5cm} % Choix format et  des marges
+\usepackage{fancyhdr}
+\usepackage{framed} % Création d'environnements
+\usepackage[framed,thmmarks]{ntheorem} % Gestions des environnements theorem
+\usepackage{lastpage}
+
+\usepackage{amsmath,amssymb,makeidx}
+\usepackage{enumerate}
+\usepackage[normalem]{ulem}
+\usepackage{fancybox,graphicx}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{dcolumn}
+\usepackage{textcomp}
+\usepackage{diagbox}
+\usepackage{tabularx}
+\usepackage{lscape}
+\usepackage{pstricks,pst-plot,pst-text,pst-tree,pstricks-add,pst-grad,pst-coil,pst-blur}
+\usepackage[pstricks]{bclogo} % Logo
+%\setlength\paperheight{297mm}
+%\setlength\paperwidth{210mm}
+%\setlength{\textheight}{25cm}
+\usepackage{pifont}
+
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+%\thispagestyle{empty}
+%\usepackage[frenchb]{babel}
+%\usepackage[np]{numprint}
+
+\usepackage{pgf,tikz,tkz-tab}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\usepackage{multirow}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DecimalMathComma	% Définit la virgule comme séparateur entre la partie entière et la partie décimale
+
+
+\def\Oij{$\left(\textrm{O},~\vec{\imath},~\vec{\jmath}\right)$}
+\def\OIJ{$\left(\textrm{O},~\textrm{I},~\textrm{J}\right)$}
+\def\Oijk{$\left(\textrm{O},~\vec{\imath},~\vec{\jmath},~\vec{k}\right)$}
+\def\Ouv{$\left(\textrm{O},~\vec{u},~\vec{v}\right)$}
+
+\newcommand{\vect}[1]{\mathchoice%
+{\overrightarrow{\displaystyle\mathstrut#1\,\,}}%
+{\overrightarrow{\textstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptscriptstyle\mathstrut#1\,\,}}}
+
+\newcommand{\equi}{\Leftrightarrow}
+\newcommand{\pg}{\geqslant}
+\newcommand{\pp}{\leqslant}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dx}{\,\mathrm{d}x}
+
+\newcommand{\N}{\mbox{${\mathbb N}$}}
+\newcommand{\Z}{\mbox{${\mathbb Z}$}}
+\newcommand{\Q}{\mbox{${\mathbb Q}$}}
+\newcommand{\R}{\mbox{${\mathbb R}$}}
+\newcommand{\C}{\mbox{${\mathbb C}$}}
+
+%Commande pour créer des lignes de pointillés
+\newcommand{\Pointilles}[1][3]{%
+\multido{}{#1}{\makebox[\linewidth]{\dotfill}\\[\parskip]
+}}
+
+\DeclareMathOperator{\e}{e} %Permet d'écrire "droit" le e de l'exponentielle
+
+\let\oldarray=\array
+\def\array{\small\oldarray} % Permet d'écrire plus petit dans le tableau
+
+\renewcommand{\arraystretch}{1.2} % Permet de gérer la hauteur des lignes des tableaux
+
+\parindent=0mm % Supprime l'alinéa
+
+\setlength{\fboxsep}{2mm} % Gère l'espacement entre un cadre et son contenu
+
+\definecolor{vert}{RGB}{51,153,102}
+
+\renewcommand{\thesection}{\red\Roman{section}.} % Numérote les sections en chiffre romain
+\renewcommand{\thesubsection}{\textcolor{vert}{\Alph{subsection}.}}
+
+\frenchbsetup{StandardItemLabels=true}
+%\renewcommand{\labelitemi}{\textbullet}
+
+\usepackage{titlesec}
+\titlespacing{\section}{0cm}{0cm}{0.5cm}
+
+
+\begin{document}
+
+\setlength\parindent{0mm}
+\rhead{Vecteurs 1}
+\lhead{\textsc{2GT4}}
+%\rfoot{\small{Métropole--La Réunion}}
+%\lfoot{\small{20 juin 2016}}
+\renewcommand \footrulewidth{.2pt}
+\pagestyle{fancy}
+\thispagestyle{empty}
+
+~~\vspace{-2cm}
+
+\begin{center} \fbox{\Large{\textbf{\blue Chapitre 1 - Vecteurs 1}}} \end{center}
+
+~\vspace{-0.8cm}
+
+\textcolor{red}{\section{\underline{Notion de vecteur}}}
+
+\subsection{\textcolor{vert}{\underline{Translations et vecteurs}}}
+
+~\vspace{-1.3cm}
+
+\begin{minipage}{0.7\linewidth}
+\begin{bclogo}[couleur = cyan!20, arrondi = 0.1,logo=\bcbook]{Définition}
+\vspace{-0.2cm}
+Soient $M$ et $M'$ deux points distincts du plan. \par 
+La \textbf{translation qui transforme $M$ en $M'$} associe à tout point $N$ du plan, l'unique point $N'$ tel que $MM'N'N$ soit un parallélogramme.
+\end{bclogo}
+
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\linewidth}
+\begin{center}
+\begin{pspicture*}(0.5,-0.5)(7,3.5)
+\psline[linewidth=1.5pt,linecolor=red]{->}(1.,2.)(5.,3.)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](5.,3.)(6.,1.)
+\psline[linewidth=1.5pt,linecolor=red]{<-}(6.,1.)(2.,0.)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](2.,0.)(1.,2.)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](1.,2.)(3.5,1.5)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](2.265946412862968,1.8297320643148387)(2.2340535871370317,1.6702679356851613)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](3.5,1.5)(6.,1.)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](4.765946412862967,1.3297320643148387)(4.734053587137033,1.1702679356851613)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](2.,0.)(3.5,1.5)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](2.6701449871706266,0.7851362056449241)(2.7851362056449243,0.6701449871706264)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](2.714863794355076,0.8298550128293726)(2.829855012829374,0.714863794355076)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](3.5,1.5)(5.,3.)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](4.170144987170626,2.2851362056449243)(4.285136205644925,2.1701449871706275)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=4pt 4pt](4.214863794355074,2.3298550128293725)(4.329855012829373,2.214863794355076)
+\begin{scriptsize}
+\psdots[dotsize=3pt 0,dotstyle=x](1.,2.)
+\rput[bl](0.671013522931025,2.2037421956286543){$M$}
+\psdots[dotsize=3pt 0,dotstyle=x](5.,3.)
+\rput[bl](5.134087829362076,3.1071985329628733){$M'$}
+\psdots[dotsize=3pt 0,dotstyle=x](2.,0.)
+\rput[bl](1.7190228742387212,-0.43435030938726554){$N$}
+\psdots[dotsize=3pt 0,dotstyle=x](6.,1.)
+\rput[bl](6.164028053923087,0.6497972954137974){$N'$}
+\psdots[dotsize=3pt 0,dotstyle=*,linecolor=darkgray](3.5,1.5)
+\rput[bl](3.30910602794695,1.6797375199748072){\darkgray{$I$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{center}
+\end{minipage}
+
+~\vspace{-0.5cm}
+
+\textbf{Remarques : } 
+
+\begin{itemize}
+\item On dit que \textbf{$N'$ est l'image de $N$} par la translation qui transforme $M$ en $M'$.
+\item La translation qui transforme $M$ en $M'$ est un déplacement caractérisé par une direction (celle de la droite $(MM')$) ; un sens (celui de $M$ vers $M'$) ; une longueur (la longueur $MM'$).
+\end{itemize}
+
+\begin{minipage}{0.85\linewidth}
+\begin{bclogo}[couleur = cyan!20, arrondi = 0.1,logo=\bcbook]{Définitions}
+\vspace{-0.2cm}
+La translation qui transforme $M$ en $M'$ est appelée la \textbf{translation de vecteur $\overrightarrow{MM'}$}. \par 
+Le point $M$ est appelé \textbf{origine} du vecteur $\overrightarrow{MM'}$ ; le point $M'$ est appelé \textbf{extrémité}.
+\end{bclogo}
+\end{minipage}
+\hfill
+\begin{minipage}{0.12\linewidth}
+\psset{unit=1.0cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(0.7,0.5)(4.2,2.1)
+\psline[linewidth=0.8pt,linecolor=blue]{->}(1.,1.)(3.7427650698673802,1.6074610129880675)
+\begin{scriptsize}
+\psdots[dotsize=4pt 0,dotstyle=x](1.,1.)
+\rput[bl](0.7794282834111355,0.6678664221604798){$M$}
+\psdots[dotsize=4pt 0,dotstyle=x](3.7427650698673802,1.6074610129880675)
+\rput[bl](3.851179830347487,1.7){$M'$}
+\rput[bl](1.9900597754389915,1.4087006187745394){\blue{$\overrightarrow{MM'}$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{minipage}
+
+\medskip
+
+\textbf{Remarques : }
+
+\begin{itemize}
+\item Lorsque les points $M$ et $M'$ sont distincts, le vecteur $\overrightarrow{MM'}$ est représenté par une flèche allant de $M$ vers $M'$. Il est défini par sa direction, son sens et sa longueur (aussi appelée norme).
+\item Par convention, on appelle \textbf{vecteur nul}, noté $\overrightarrow{0}$, tout vecteur dont l'origine et l'extrémité sont confondues, par exemple $\overrightarrow{MM}$, ou encore $\overrightarrow{AA}$.
+\end{itemize}
+
+\subsection{\textcolor{vert}{\underline{Égalité de deux vecteurs}}}
+
+\begin{bclogo}[couleur = cyan!20, arrondi = 0.1,logo=\bcbook]{Définition}
+\vspace{-0.2cm}
+Deux vecteurs non nuls $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont égaux s'ils ont la même direction, le même sens et la même norme. \par 
+On écrit alors : $\overrightarrow{AB} = \overrightarrow{CD}$
+\end{bclogo}
+
+\textbf{Remarque : } Dire que les vecteurs $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont égaux revient à dire que $D$ est l'image de $C$ par la translation de vecteur $\overrightarrow{AB}$.
+
+\begin{bclogo}[couleur = green!20, arrondi = 0.1, logo=\bctrombone]{Propriété (admise)}
+Deux vecteurs $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont égaux si et seulement si le quadrilatère $ABDC$ est un parallélogramme (éventuellement aplati).
+\end{bclogo}
+
+\begin{center}
+\psset{unit=0.8cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(3.8,1.2)(11.,4.5)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](3.977663717574279,3.324028053923084)(7.257057911557913,2.8304220727956424)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](5.597871352864497,3.163771786051924)(5.573258476360772,3.0002500148626963)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](5.661463152771418,3.15420011185603)(5.636850276267693,2.9906783406668023)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](7.257057911557913,2.8304220727956424)(10.536452105541548,2.336816091668201)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](8.877265546848133,2.6701658049244825)(8.852652670344407,2.5066440337352547)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](8.940857346755053,2.6605941307285885)(8.916244470251328,2.4970723595393607)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](8.55240713328147,3.9052863206088047)(7.257057911557913,2.8304220727956424)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](7.957530885281838,3.3042254004324563)(7.851934159557544,3.4314829929719903)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](7.257057911557913,2.8304220727956424)(5.961708689834356,1.7555578249824804)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt](6.662181663558282,2.2293611526192945)(6.556584937833986,2.3566187451588285)
+\psline[linewidth=1.6pt]{->}(3.977663717574279,3.324028053923084)(8.55240713328147,3.9052863206088047)
+\psline[linewidth=1.6pt]{->}(5.961708689834356,1.7555578249824804)(10.536452105541548,2.336816091668201)
+
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt]{-}(3.977663717574279,3.324028053923084)(5.961708689834356,1.7555578249824804)
+\psline[linewidth=0.8pt,linestyle=dashed,dash=3pt 3pt]{-}(8.55240713328147,3.9052863206088047)(10.536452105541548,2.336816091668201)
+
+\begin{scriptsize}
+\psdots[dotstyle=*,linecolor=blue,dotsize=4pt 0](3.977663717574279,3.324028053923084)
+\rput[bl](4.050838915944286,3.501063868439752){\blue{$A$}}
+\psdots[dotstyle=*,linecolor=blue](8.55240713328147,3.9052863206088047)
+\rput[bl](8.625902124584934,4.089023798867465){\blue{$B$}}
+\psdots[dotstyle=*,linecolor=blue,dotsize=4pt 0](5.961708689834356,1.7555578249824804)
+\rput[bl](5.447243750710106,1.4983253554203562){\blue{$C$}}
+\psdots[dotsize=3pt 0,dotstyle=*,linecolor=darkgray](7.257057911557913,2.8304220727956424)
+\rput[bl](7.174376046341515,3.0233464249672357){\darkgray{$I$}}
+\psdots[dotstyle=*,linecolor=blue,dotsize=4pt 0](10.536452105541548,2.336816091668201)
+\rput[bl](10.610266889778467,2.527255233668853){\blue{$D$}}
+\rput[bl](5.686102472446365,3.721548842350144){$\overrightarrow{AB}$}
+\rput[bl](7.946073455027889,1.38808286846516){$\overrightarrow{CD}$}
+\end{scriptsize}
+\end{pspicture*}
+\end{center}
+
+\textbf{Exemple : } On considère la figure donnée ci-dessous, $ABDC$ et $ABFE$ sont des parallélogrammes. 
+
+\begin{minipage}{0.3\linewidth}
+\newrgbcolor{zzttqq}{0.6 0.2 0.}
+\newrgbcolor{qqccqq}{0. 0.8 0.}
+\psset{unit=0.8cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-0.5,-0.5)(6.5,4.5)
+\pspolygon[linewidth=0.8pt,linecolor=zzttqq](1.,1.)(4.,2.)(3.,4.)(0.,3.)
+\pspolygon[linewidth=0.8pt,linecolor=qqccqq](1.,1.)(3.,0.)(6.,1.)(4.,2.)
+\psline[linewidth=0.8pt,linecolor=zzttqq](1.,1.)(4.,2.)
+\psline[linewidth=0.8pt,linecolor=zzttqq](4.,2.)(3.,4.)
+\psline[linewidth=0.8pt,linecolor=zzttqq](3.,4.)(0.,3.)
+\psline[linewidth=0.8pt,linecolor=zzttqq](0.,3.)(1.,1.)
+\psline[linewidth=0.8pt,linecolor=qqccqq](1.,1.)(3.,0.)
+\psline[linewidth=0.8pt,linecolor=qqccqq](3.,0.)(6.,1.)
+\psline[linewidth=0.8pt,linecolor=qqccqq](6.,1.)(4.,2.)
+\psline[linewidth=0.8pt,linecolor=qqccqq](4.,2.)(1.,1.)
+\begin{scriptsize}
+\psdots[dotstyle=*,linecolor=blue](1.,1.)
+\rput[bl](0.7794282834111333,0.5775207884270598){\blue{$A$}}
+\psdots[dotstyle=*,linecolor=blue](4.,2.)
+\rput[bl](4.1,2.1){\blue{$B$}}
+\psdots[dotstyle=*,linecolor=blue](0.,3.)
+\rput[bl](-0.2866501946432476,3.1794750399496103){\blue{$C$}}
+\psdots[dotstyle=*,linecolor=blue](3.,4.)
+\rput[bl](3.0742073802400554,4.173277011017251){\blue{$D$}}
+\psdots[dotstyle=*,linecolor=blue](3.,0.)
+\rput[bl](2.8,-0.4){\blue{$E$}}
+\psdots[dotstyle=*,linecolor=blue](6.,1.)
+\rput[bl](6.0736824201896695,1.1738019710676442){\blue{$F$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{minipage}
+\hfill
+\begin{minipage}{0.65\linewidth}
+\begin{enumerate}[\hspace{0.2cm} $\bullet$] 
+\item $ABDC$ est un parallélogramme donc \ldots \ldots \ldots \ldots \ldots. \par 
+$ABFE$ est un parallélogramme donc \ldots \ldots \ldots \ldots \ldots. 
+\item On a $\overrightarrow{AB} = \dotfill$
+\item $ABFE$ est un parallélogramme, donc $AEFB$ est aussi un parallélogramme. Donc $\dotfill$
+\item L'image du point $B$ par la translation qui transforme $A$ en $E$ est le point $\ldots \ldots$.
+\end{enumerate}
+\end{minipage}
+
+\medskip
+
+\textbf{Remarque: } La propriété précédente donne une méthode pour montrer qu'un quadrilatère est un parallélogramme.
+
+\begin{minipage}{0.75\linewidth}
+Soit $\overrightarrow{AB}$ un vecteur. \par 
+À partir de n'importe quel point du plan, on peut construire un vecteur qui lui est égal, par exemple $\overrightarrow{CD}$ ou $\overrightarrow{EF}$ sur la figure ci-contre. \par 
+Ce vecteur peut être noté avec une seule lettre, sans préciser d'origine et d'extrémité : $\overrightarrow{u} = \overrightarrow{AB} = \overrightarrow{CD} = \overrightarrow{EF}$.
+
+\medskip
+
+On dit que les vecteurs $\overrightarrow{AB}$, $\overrightarrow{CD}$ et $\overrightarrow{EF}$ sont \textbf{des représentants} du vecteur $\overrightarrow{u}$.
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\linewidth}
+\psset{unit=0.8cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(0.5,1.2)(5.7,4.7)
+\psline[linewidth=0.8pt,linecolor=red]{->}(0.9457926197599469,3.252967774453581)(2.945792619759947,4.252967774453584)
+\psline[linewidth=0.8pt,linecolor=blue]{->}(0.8435758882121971,1.6386174650663121)(2.8435758882121966,2.638617465066312)
+\psline[linewidth=0.8pt,linecolor=green]{->}(3.271036901200267,1.7950415768541124)(5.271036901200268,2.7950415768541124)
+\psline[linewidth=0.8pt]{->}(1.403718817359414,2.560667889197608)(3.403718817359414,3.560667889197608)
+\begin{scriptsize}
+\psdots[dotsize=3pt 0,dotstyle=x](0.9457926197599469,3.252967774453581)
+\rput[bl](0.7071517764243976,2.962645518989396){$A$}
+\psdots[dotsize=3pt 0,dotstyle=x](2.945792619759947,4.252967774453584)
+\rput[bl](3.02,4.353968278484094){$B$}
+\psdots[dotsize=3pt 0,dotstyle=x](0.8435758882121971,1.6386174650663121)
+\rput[bl](0.5806678891976067,1.2822167315477486){$C$}
+\psdots[dotsize=3pt 0,dotstyle=x](2.8435758882121966,2.638617465066312)
+\rput[bl](2.911585239519897,2.7458159980291836){$D$}
+\psdots[dotsize=3pt 0,dotstyle=x](3.271036901200267,1.7950415768541124)
+\rput[bl](3.254898647706901,1.3725623652811707){$E$}
+\psdots[dotsize=3pt 0,dotstyle=x](5.271036901200268,2.7950415768541124)
+\rput[bl](5.350917350322294,2.908438138749343){$F$}
+\rput[bl](1.9539215219456227,2.998783772482765){$\overrightarrow{u}$}
+\end{scriptsize}
+\end{pspicture*}
+\end{minipage}
+
+\medskip
+%
+%\textbf{Remarque : } Le vecteur $\overrightarrow{0}$ est appelé le \textbf{vecteur nul}. On a $\overrightarrow{0} = \overrightarrow{AA} = \overrightarrow{BB} = \cdots$ 
+
+\begin{minipage}{0.75\linewidth}
+\begin{bclogo}[couleur = green!20, arrondi = 0.1, logo=\bctrombone]{Propriété (admise)}
+Le point $K$ est le milieu du segment $[AB]$ si et seulement si $\overrightarrow{AK} = \overrightarrow{KB}$.
+\end{bclogo}
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\linewidth}
+\psset{unit=1cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(1.7,1.5)(5.3,3.)
+\psline[linewidth=0.8pt](2.,2.)(4.863050928161814,2.4928482235756024)
+\psline[linewidth=0.8pt,linecolor=red]{->}(2.,2.)(3.431525464080907,2.2464241117878014)
+\psline[linewidth=0.8pt,linecolor=blue]{->}(3.431525464080907,2.2464241117878014)(4.863050928161814,2.4928482235756024)
+\begin{scriptsize}
+\psdots[dotsize=3pt 0,dotstyle=x](2.,2.)
+\rput[bl](1.755161127732094,1.7){$A$}
+\psdots[dotsize=3pt 0,dotstyle=x](4.863050928161814,2.4928482235756024)
+\rput[bl](4.84498180141513,2.2){$B$}
+\psdots[dotsize=3pt 0,dotstyle=x,linecolor=darkgray](3.431525464080907,2.2464241117878014)
+\rput[bl](3.309106027946954,1.9){\darkgray{$K$}}
+\rput[bl](2.3695114371193644,2.1676039421352833){\red{$\overrightarrow{AK}$}}
+\rput[bl](3.90538721058754,2.4567099700822337){\blue{$\overrightarrow{KB}$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{minipage}
+
+\medskip
+
+\begin{minipage}{0.69\linewidth}
+\textbf{Exercice : } on considère le parallélogramme $GHFE$ donné ci-contre. 
+
+\begin{enumerate}
+\item Construire le point $I$, image de $H$, par la translation de vecteur $\overrightarrow{EF}$.
+\item Démontrer que le point $H$ est le milieu du segment $[GI]$.
+
+\vspace{3cm}
+
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+\begin{center}
+\psset{unit=0.8cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(1.,0.)(10.,6.)
+\multips(0,0)(0,0.5){14}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(1.,0)(10.,0)}
+\multips(1,0)(0.5,0){20}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0,0.)(0,6.)}
+\psline[linewidth=0.8pt]{->}(3.,3.)(6.,4.)
+\psline[linewidth=0.8pt]{->}(2.,1.)(5.,2.)
+\begin{scriptsize}
+\psdots[dotsize=3pt 0,dotstyle=*,linecolor=blue](2.,1.)
+\rput[bl](1.7856065910191197,0.56){\blue{$E$}}
+\psdots[dotsize=3pt 0,dotstyle=*,linecolor=blue](5.,2.)
+\rput[bl](5.054241753801559,2.08639633859083){\blue{$F$}}
+\psdots[dotsize=3pt 0,dotstyle=*,linecolor=blue](3.,3.)
+\rput[bl](2.6974576020957657,3.06838973513491){\blue{$G$}}
+\psdots[dotsize=3pt 0,dotstyle=*,linecolor=blue](6.,4.)
+\rput[bl](5.727608654288928,4.134553994239911){\blue{$H$}}
+%\psdots[dotsize=3pt 0,dotstyle=*,linecolor=blue](9.,5.)
+%\rput[bl](9.052357725445315,5.088490436597017){\blue{$I$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{center}
+\end{minipage}
+
+~~\bigskip
+
+~~\bigskip
+
+\textcolor{red}{\section{\underline{Opérations sur les vecteurs}}}
+
+\subsection{\textcolor{vert}{\underline{Somme de deux vecteurs}}}
+
+\begin{minipage}{0.75\linewidth}
+\begin{bclogo}[couleur = cyan!20, arrondi = 0.1,logo=\bcbook]{Définition}
+\vspace{-0.2cm}
+\textbf{La somme de deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$} est le vecteur $\overrightarrow{w}$ associé à la translation qui résulte de l'enchainement des translations de vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$. \par 
+On écrit $\overrightarrow{w} = \overrightarrow{u} + \overrightarrow{v}$.
+\end{bclogo}
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\linewidth}
+\newrgbcolor{qqzzqq}{0. 0.6 0.}
+\psset{unit=0.8cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(1.5,0.5)(7.,3.)
+\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=2]{->}(0,0)(1.5,0.5)(7.,3.)
+\psline[linewidth=0.8pt,linecolor=blue]{->}(2.,1.)(5.278640843335556,2.619332110802393)
+\psline[linewidth=0.8pt,linecolor=qqzzqq]{->}(5.278640843335556,2.619332110802393)(6.633825349336887,1.390631492027855)
+\psline[linewidth=0.8pt,linecolor=red]{->}(2.,1.)(6.633825349336887,1.390631492027855)
+\begin{scriptsize}
+%\psdots[dotstyle=x](2.,1.)
+%\rput[bl](1.773230254478778,0.5775207884270578){A}
+%\psdots[dotstyle=x](5.278640843335556,2.619332110802393)
+%\rput[bl](5.350917350322294,2.7){$B$}
+%\psdots[dotstyle=x](6.633825349336887,1.390631492027855)
+%\rput[bl](6.706101856323626,1.1){$C$}
+\rput[bl](3.182622140720163,2.2){\blue{$\overrightarrow{u}$}}
+\rput[bl](6.037544166696302,1.9869126746684396){\qqzzqq{$\overrightarrow{v}$}}
+\rput[bl](4.0499402245610145,0.6859355489071641){\red{$\overrightarrow{w} = \overrightarrow{u}+\overrightarrow{v}$}}
+\end{scriptsize}
+\end{pspicture*}
+
+\end{minipage}
+
+\medskip
+
+\textbf{Remarques : } L'ordre n'a pas d'importance. Autrement dit, $\overrightarrow{u}+\overrightarrow{v} = \overrightarrow{v} + \overrightarrow{u}$. \par De plus, il est possible d'enchaîner trois translations ou plus. 
+
+\medskip
+
+\textbf{Exemple : } Construire le vecteur $\overrightarrow{u}+\overrightarrow{v}$ puis placer le point $E$ tel que $\overrightarrow{AE} = \overrightarrow{u} + \overrightarrow{v}$.
+
+\begin{center}
+\psset{unit=0.9cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(2.5,0.5)(15.5,4.5)
+\multips(0,0)(0,1.0){5}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1.2pt,linecolor=lightgray]{c-c}(2.5,0)(15.5,0)}
+\multips(2,0)(1.0,0){15}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1.2pt,linecolor=lightgray]{c-c}(0,0.5)(0,4.5)}
+\psline[linewidth=1pt,linecolor=red]{->}(9.,1.)(12.,3.)
+\psline[linewidth=1pt,linecolor=blue]{->}(9.,4.)(10.,3.)
+\psdots[dotstyle=x](3.,1.)
+\rput[bl](2.9,0.5){$A$}
+\begin{scriptsize}
+\rput[bl](10.229581571927094,2.0411200549084967){\red{$\overrightarrow{u}$}}
+\rput[bl](9.506816502059715,3.5047193213899317){\blue{$\overrightarrow{v}$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{center}
+
+\begin{minipage}{0.75\linewidth}
+\begin{bclogo}[couleur = green!20, arrondi = 0.1, logo=\bctrombone]{Propriété (admise) - Relation de Chasles}
+Pour tous points $A$, $B$ et $C$ du plan, on a \[ \overrightarrow{AB}+\overrightarrow{BC} = \overrightarrow{AC} \]
+\end{bclogo}
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\linewidth}
+\newrgbcolor{qqzzqq}{0. 0.6 0.}
+\psset{unit=0.8cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(1.5,0.5)(7.,3.)
+\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=2]{->}(0,0)(1.5,0.5)(7.,3.)
+\psline[linewidth=0.8pt,linecolor=blue]{->}(2.,1.)(5.278640843335556,2.619332110802393)
+\psline[linewidth=0.8pt,linecolor=qqzzqq]{->}(5.278640843335556,2.619332110802393)(6.633825349336887,1.390631492027855)
+\psline[linewidth=0.8pt,linecolor=red]{->}(2.,1.)(6.633825349336887,1.390631492027855)
+\begin{scriptsize}
+\psdots[dotstyle=x](2.,1.)
+\rput[bl](1.773230254478778,0.5775207884270578){A}
+\psdots[dotstyle=x](5.278640843335556,2.619332110802393)
+\rput[bl](5.350917350322294,2.7){$B$}
+\psdots[dotstyle=x](6.633825349336887,1.390631492027855)\rput[bl](6.706101856323626,1.1){$C$}
+\rput[bl](3.182622140720163,1.8965670409350177){\blue{$\overrightarrow{AB}$}}
+\rput[bl](6.037544166696302,1.9869126746684396){\qqzzqq{$\overrightarrow{BC}$}}
+\rput[bl](4.0499402245610145,0.6859355489071641){\red{$\overrightarrow{AB}+\overrightarrow{BC} = \overrightarrow{AC}$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{minipage}
+
+% Identité du parallèlogramme à faire en exo ...
+
+\newpage
+
+~~\vspace{-1cm}
+
+\textbf{Exemple : } simplifier les écritures suivantes :
+
+\begin{enumerate}
+\item $\overrightarrow{MN} + \overrightarrow{NP} = $ \dotfill
+
+\medskip
+
+\item $\overrightarrow{AD} + \overrightarrow{CA} = $ \dotfill
+
+\medskip
+
+\item $\overrightarrow{MP} + \overrightarrow{PN} + \overrightarrow{NM} = $ \dotfill
+\end{enumerate} 
+
+\medskip
+
+\begin{minipage}{0.75\linewidth}
+\begin{bclogo}[couleur = cyan!20, arrondi = 0.1,logo=\bcbook]{Définition}
+\vspace{-0.2cm}
+Soient $\overrightarrow{u}$ et $\overrightarrow{v}$ deux vecteurs. 
+\begin{itemize}
+\item L'\textbf{opposé du vecteur $\overrightarrow{v}$}, que l'on note $-\overrightarrow{v}$, est le vecteur qui vérifie la relation suivante : $\overrightarrow{v} + (-\overrightarrow{v}) = \overrightarrow{0}$.
+\item Le vecteur $\overrightarrow{u} - \overrightarrow{v}$ est le vecteur défini par $\overrightarrow{u} - \overrightarrow{v} = \overrightarrow{u} + (-\overrightarrow{v})$.
+\end{itemize}
+\end{bclogo}
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\linewidth}
+\newrgbcolor{qqzzqq}{0. 0.6 0.}
+\psset{unit=1.2cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(0.7,-0.2)(5.6,1.5)
+\psline[linewidth=0.8pt]{->}(1.42615564718637,0.49809860993400623)(1.9164636820438399,-0.12415709605886482)
+\psline[linewidth=0.8pt,linecolor=blue]{->}(0.8593869910429772,0.5962300998756176)(2.8489857162391297,1.16159298139221)
+\psline[linewidth=0.8pt,linecolor=qqzzqq]{->}(2.3792678096253916,0.06952720773263865)(1.8889597747679217,0.6917829137255097)
+\psline[linewidth=0.8pt,linecolor=blue]{->}(3.18808463776469,0.14429621681553545)(5.177683362960842,0.7096590983321278)
+\psline[linewidth=0.8pt,linecolor=qqzzqq]{->}(5.177683362960842,0.7096590983321278)(4.687375328103371,1.3319148043249989)
+\psline[linewidth=0.8pt,linecolor=red]{->}(3.18808463776469,0.14429621681553545)(4.687375328103371,1.3319148043249989)
+\begin{scriptsize}
+\rput[bl](1.2241367172624906,-0.0393823656774768){$\overrightarrow{v}$}
+\rput[bl](1.5067191518671235,0.9496561554387345){\blue{$\overrightarrow{u}$}}
+\rput[bl](2.213175238378706,0.2573291906573866){\qqzzqq{$-\overrightarrow{v}$}}
+\rput[bl](4.3608017413739155,0.18668358200622864){\blue{$\overrightarrow{u}$}}
+\rput[bl](5.053128706155266,0.9496561554387345){\qqzzqq{$-\overrightarrow{v}$}}
+\rput[bl](3.1598263943042255,0.6388154773736395){\red{$\overrightarrow{u}-\overrightarrow{v}$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{minipage}
+
+\medskip
+
+\vspace{-0.5cm}
+
+\begin{minipage}{0.85\linewidth}
+\textbf{Remarque : } Si $A$ et $B$ sont deux points, alors le vecteur opposé à $\overrightarrow{AB}$ est le vecteur $\overrightarrow{BA}$. \par On a alors : $-\overrightarrow{AB} = \overrightarrow{BA}$.
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\linewidth}
+\psset{xunit=1.0cm,yunit=1.0cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(1.8,0.1)(5.4,2.)
+\psline[linewidth=0.8pt,linecolor=red]{->}(2.,1.)(5.007603942135289,1.5893918862413832)
+\psline[linewidth=0.8pt,linecolor=blue]{->}(5.16262214072016,1.0722765069867375)(2.1550181985848704,0.4828846207453543)
+\begin{scriptsize}
+\psdots[dotsize=3pt 0,dotstyle=x](2.,1.)
+\rput[bl](2.0804054091724136,1.101525464080905){$A$}
+\psdots[dotsize=3pt 0,dotstyle=x](5.007603942135289,1.5893918862413832)
+\rput[bl](5.079880449122028,1.6978066467214896){$B$}
+\rput[bl](3.1826221407201634,1.3544932385344863){\red{$\overrightarrow{AB}$}}
+\rput[bl](3.327175154693639,0.32455301397347647){\blue{$-\overrightarrow{AB} = \overrightarrow{BA}$}}
+\end{scriptsize}
+\end{pspicture*}
+
+\end{minipage}
+
+\medskip
+
+%\begin{minipage}{0.45\linewidth}
+%\textbf{Exemple : } \par 
+%Sur la figure donnée ci-contre, construire le vecteur $\overrightarrow{u} - \overrightarrow{v}$, puis placer le point $E$ tel que \par $\overrightarrow{AE} = \overrightarrow{u} - \overrightarrow{v}$.
+%\end{minipage}
+%\hfill
+%\begin{minipage}{0.5\linewidth}
+%\newrgbcolor{qqzzqq}{0. 0.6 0.}
+%\psset{unit=0.8cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+%\begin{pspicture*}(0.5,0.5)(12.5,4.5)
+%\multips(0,0)(0,1.0){5}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0.5,0)(12.5,0)}
+%\multips(0,0)(1.0,0){13}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0,0.5)(0,4.5)}
+%\psline[linewidth=1pt,linecolor=red]{->}(3.,1.)(5.,3.)
+%\psline[linewidth=1pt,linecolor=blue]{->}(3.,2.)(1.,3.)
+%\begin{scriptsize}
+%\psdots[dotstyle=x](6.,1.)
+%\rput[bl](5.766507265496035,0.6317281686671129){$A$}
+%\rput[bl](3.796972450107432,2.1){\red{$\overrightarrow{u}$}}
+%\rput[bl](1.953921521945621,2.6){\blue{$\overrightarrow{v}$}}
+%\end{scriptsize}
+%\end{pspicture*}
+%\end{minipage}
+
+
+
+\textbf{Exemple : } sur la figure donnée ci-dessous, construire le vecteur $\overrightarrow{u} - \overrightarrow{v}$, puis placer le point $E$ \par 
+tel que $\overrightarrow{AE} = \overrightarrow{u} - \overrightarrow{v}$.
+
+
+\begin{center}
+\newrgbcolor{qqzzqq}{0. 0.6 0.}
+\psset{unit=0.9cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(0.5,0.5)(12.5,4.5)
+\multips(0,0)(0,1.0){5}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0.5,0)(12.5,0)}
+\multips(0,0)(1.0,0){13}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0,0.5)(0,4.5)}
+\psline[linewidth=1pt,linecolor=red]{->}(3.,1.)(5.,3.)
+\psline[linewidth=1pt,linecolor=blue]{->}(3.,2.)(1.,3.)
+\begin{scriptsize}
+\psdots[dotstyle=x](6.,1.)
+\rput[bl](5.766507265496035,0.6317281686671129){$A$}
+\rput[bl](3.796972450107432,2.1){\red{$\overrightarrow{u}$}}
+\rput[bl](1.953921521945621,2.6){\blue{$\overrightarrow{v}$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{center}
+
+\subsection{\textcolor{vert}{\underline{Produit d'un vecteur par un réel}}}
+
+\begin{bclogo}[couleur = cyan!20, arrondi = 0.1,logo=\bcbook]{Définition}
+\vspace{-0.2cm}
+Soient $\overrightarrow{AB}$ un vecteur non nul du plan et $k$ un nombre réel non nul. \par 
+Le vecteur $k\overrightarrow{AB}$ est le vecteur qui :
+\begin{itemize}
+\item a la même direction que $\overrightarrow{AB}$ ;
+\item si $k>0$, a le même sens que $\overrightarrow{AB}$ et a pour norme $k \times AB$ ;
+\item si $k<0$, a le sens opposé au vecteur $\overrightarrow{AB}$ et a pour norme $-k \times AB$.
+\end{itemize}
+
+\medskip
+
+De plus, pour tout réel $k$, on a : $k \overrightarrow{0} = \overrightarrow{0}$ ; et
+pour tout vecteur $\overrightarrow{u}$, on a : $0 \overrightarrow{u} = \overrightarrow{0}$.
+\end{bclogo}
+
+\textbf{Exercice : } on considère la figure ci-dessous : 
+
+\begin{center}
+\psset{unit=0.8cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(0.,-2.)(11.,4.)
+\multips(0,-2)(0,1.0){7}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0.,0)(11.,0)}
+\multips(0,0)(1.0,0){12}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0,-2.)(0,4.)}
+\psline[linewidth=1.2pt]{->}(1.,3.)(5.,3.)
+\psline[linewidth=1.2pt]{->}(4.,-1.)(8.,1.)
+\begin{scriptsize}
+\rput[bl](2.4483932461739193,3.171828238403343){$\overrightarrow{u}$}
+\psdots[dotsize=3pt 0,dotstyle=*,linecolor=blue](1.,2.)
+\rput[bl](1.078362890182604,2.098020662085827){\blue{A}}
+\psdots[dotsize=3pt 0,dotstyle=*,linecolor=blue](3.,1.)
+\rput[bl](3.1148945004399646,1.110611396506502){\blue{$B$}}
+\psdots[dotsize=3pt 0,dotstyle=*,linecolor=blue](6.,1.)
+\rput[bl](5.65387167004492,0.75){\blue{$C$}}
+\rput[bl](5.102055647418359,-0.15){$\overrightarrow{v}$}
+\end{scriptsize}
+\end{pspicture*}
+\end{center}
+
+\begin{enumerate}
+\item Construire le point $A'$ tel que $\overrightarrow{AA'} = 2\overrightarrow{u}$
+\item Construire le point $B'$ tel que $\overrightarrow{BB'} = -\dfrac{1}{4}\overrightarrow{u}$.
+\item Construire le point $C'$ tel que $\overrightarrow{CC'} = \dfrac{1}{2}\overrightarrow{u}$.
+\end{enumerate}
+
+
+\end{document}

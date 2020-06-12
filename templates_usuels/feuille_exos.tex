@@ -1,0 +1,293 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages Ecriture
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier}
+\usepackage[scaled=0.875]{helvet} 
+\renewcommand{\ttdefault}{lmtt} 
+\usepackage{eurosym}
+\usepackage[french]{babel}
+\usepackage[np]{numprint}
+
+% Packages Mise en page
+\usepackage{geometry} % Permet la mise en page
+\geometry{lmargin=1cm,rmargin=1cm,tmargin=1cm,bmargin=1cm} % Choix format et  des marges
+\usepackage{fancyhdr}
+\usepackage{framed} % Création d'environnements
+\usepackage[framed,thmmarks]{ntheorem} % Gestions des environnements theorem
+\usepackage{lastpage}
+
+\usepackage{amsmath,amssymb,makeidx}
+\usepackage{enumerate}
+\usepackage[normalem]{ulem}
+\usepackage{fancybox,graphicx}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{dcolumn}
+\usepackage{textcomp}
+\usepackage{diagbox}
+\usepackage{tabularx}
+\usepackage{lscape}
+\usepackage{pstricks,pst-plot,pst-text,pst-tree,pstricks-add,pst-grad,pst-coil,pst-blur}
+\usepackage[pstricks]{bclogo} % Logo
+%\setlength\paperheight{297mm}
+%\setlength\paperwidth{210mm}
+%\setlength{\textbfheight}{25cm}
+
+\usepackage{multicol}
+
+\usepackage{hyperref}
+
+\usepackage{pgf,tikz,tkz-tab}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usetikzlibrary{arrows}
+
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{multirow}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DecimalMathComma	% Définit la virgule comme séparateur entre la partie entière et la partie décimale
+
+
+\def\Oij{$\left(\textbfrm{O},~\vec{\imath},~\vec{\jmath}\right)$}
+\def\Oijk{$\left(\textbfrm{O},~\vec{\imath},~\vec{\jmath},~\vec{k}\right)$}
+\def\Ouv{$\left(\textbfrm{O},~\vec{u},~\vec{v}\right)$}
+
+\newcommand{\vect}[1]{\mathchoice%
+{\overrightarrow{\displaystyle\mathstrut#1\,\,}}%
+{\overrightarrow{\textbfstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptscriptstyle\mathstrut#1\,\,}}}
+
+\newcommand{\equi}{\Leftrightarrow}
+\newcommand{\pg}{\geqslant}
+\newcommand{\pp}{\leqslant}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dx}{\,\mathrm{d}x}
+
+\newcommand{\N}{\mbox{${\mathbb N}$}}
+\newcommand{\Z}{\mbox{${\mathbb Z}$}}
+\newcommand{\Q}{\mbox{${\mathbb Q}$}}
+\newcommand{\R}{\mbox{${\mathbb R}$}}
+\newcommand{\C}{\mbox{${\mathbb C}$}}
+
+%Commande pour créer des lignes de pointillés
+\newcommand{\Pointilles}[1][3]{%
+\multido{}{#1}{\makebox[\linewidth]{\dotfill}\\[\parskip]
+}}
+
+\DeclareMathOperator{\e}{e} %Permet d'écrire "droit" le e de l'exponentielle
+
+\let\oldarray=\array
+\def\array{\small\oldarray} % Permet d'écrire plus petit dans le tableau
+
+\renewcommand{\arraystretch}{1.2} % Permet de gérer la hauteur des lignes des tableaux
+
+\parindent=0mm % Supprime l'alinéa
+
+\setlength{\fboxsep}{2mm} % Gère l'espacement entre un cadre et son contenu
+
+\renewcommand{\thesection}{\Roman{section}.} % Numérote les sections en chiffre romain
+\renewcommand{\thesubsection}{\Alph{subsection}.}
+
+\newcounter{nexo}
+\setcounter{nexo}{0}
+\newcommand{\exo}{%
+\stepcounter{nexo}
+{\textbf{\underline{\textsc{Exercice \arabic{nexo}}}}%
+\medskip%
+}
+}
+
+\begin{document}
+
+\setlength\parindent{0mm}
+
+\fancyhf{\footnotesize{}}
+\fancyhead[L]{\footnotesize{}}
+\fancyhead[R]{\footnotesize{}}
+\fancyfoot[L]{\small{\textbf{}}}
+\fancyfoot[R]{\small{\textbf{}}}
+
+%\cfoot{Page \thepage\ sur \pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\renewcommand{\labelitemi}{$\bullet$}
+
+\pagestyle{fancy}
+
+%%%~\vspace{-2cm}
+
+%%%\small{Mathématiques - Chapitre 1} \hfill \small{T\up{le}STI2D2}
+
+\begin{center} {\large \framebox{\textbf{Feuille d'exercices 1 - Alignement de points}}} \end{center}
+
+Cette feuille d'exercices est à traiter après avoir lu complètement le diaporama du cours. 
+
+\medskip
+
+\exo 
+
+Dans le repère ci-dessous, on a tracé deux droites $d$ et $d'$. 
+
+\begin{center}
+\psset{unit=1.0cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-5.,-5.)(5.,5.)
+\multips(0,-5)(0,1.0){11}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(-5.,0)(5.,0)}
+\multips(-5,0)(1.0,0){11}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0,-5.)(0,5.)}
+\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=2]{->}(0,0)(-5.,-5.)(5.,5.)
+\psplot[linewidth=2.pt,linecolor=red]{-5.}{5.}{(--3.5-1.5*x)/1.}
+\psplot[linewidth=2.pt,linecolor=blue]{-5.}{5.}{(--1.--0.6666666666666666*x)/1.}
+\rput[bl](-3.5,-1.7){\blue{$d$}}
+\rput[bl](3.5,-1.5){\red{$d'$}}
+\end{pspicture*}
+\end{center}
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+\item Déterminer, par lecture graphique, un vecteur directeur de la droite $d$ et un point $A$ appartenant à la droite $d$. \par 
+En déduire une équation cartésienne de la droite $d$.
+
+\item Le point $B(93 ; 63)$ appartient-il à la droite $d$ ? Et le point $C(-54 ; -35)$ ?
+\item Que peut-on déduire pour les points $A$, $B$ et $C$ ?
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+\item Déterminer l'équation réduite de la droite $d'$. 
+\item Montrer que les points $D(-13;23)$ et $E(29 ; -40)$ appartiennent à la droite $d'$.
+\item Soit le point $F(41 ; -60)$. Les points $D$, $E$ et $F$ sont-ils alignés ? Justifier.
+\end{enumerate}
+\end{enumerate}
+
+\bigskip
+
+\exo 
+
+Dans chacune des questions suivantes, déterminer si les points $A$, $B$ et $C$ sont alignés. 
+
+{\renewcommand{\theenumi}{\alph{enumi}}
+\begin{enumerate}
+\item $A(-6 ; 2)$, $B(1,1)$ et $C(4;-2)$ ;
+\item $A(1 ; 4)$, $B(-1,-6)$ et $C(2;9)$ ;
+%\item $A(-4 ; -1)$, $B(3,-2)$ et $C(10;-3)$ ;
+%\item $A(-11 ; 0)$, $B(1,8)$ et $C(10;14)$ ;
+\end{enumerate}}
+
+\bigskip
+
+\exo
+
+Soient les points $A(-1;-2)$ et $B(1;4)$. 
+
+\begin{enumerate}
+\item Déterminer une équation cartésienne de la droite $(AB)$.
+\item Le point $C(-3;-9)$ est-il aligné avec les points $A$ et $B$ ? Qu'en est-il du point $D(0;1)$ ?
+\item Déterminer les réels $y_F$ et $x_G$ pour que les points $F(3;y_F)$ et $G(x_G ; -5)$ soient alignés avec $A$ et $B$.
+\end{enumerate}
+
+\bigskip
+
+\end{document}
+
+Pour tous les exercices, on considère un repère du plan. 
+
+\exo 
+
+Dans le repère donné ci-dessous, on a tracé trois droites $d_1$, $d_2$ et $d_3$. \par 
+On a aussi représenté deux vecteurs $\overrightarrow{u}$ et $\overrightarrow{v}$.
+
+\begin{center}
+\newrgbcolor{qqzzqq}{0. 0.6 0.}
+\newrgbcolor{ffwwqq}{1. 0.4 0.}
+\newrgbcolor{qqzzff}{0. 0.6 1.}
+\newrgbcolor{ududff}{0.30196078431372547 0.30196078431372547 1.}
+\psset{unit=1.0cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-4.5,-3.5)(5.5,4.5)
+\multips(0,-3)(0,1.0){9}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(-4.5,0)(5.5,0)}
+\multips(-4,0)(1.0,0){11}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0,-3.5)(0,4.5)}
+\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=2]{->}(0,0)(-4.5,-3.5)(5.5,4.5)
+\psplot[linewidth=2.pt,linecolor=qqzzqq]{-4.5}{5.5}{(-4.--2.*x)/2.}
+\psplot[linewidth=2.pt,linecolor=blue]{-4.5}{5.5}{(-1.-3.*x)/2.}
+\psplot[linewidth=2.pt,linecolor=red]{-4.5}{5.5}{(--4.--2.*x)/4.}
+\psline[linewidth=2.pt,linecolor=ffwwqq]{->}(2.,-2.)(5.,1.)
+\psline[linewidth=2.pt,linecolor=qqzzff]{->}(1.,1.)(0.,4.)
+\begin{scriptsize}
+\rput[bl](3.35,-0.39){\ffwwqq{$\overrightarrow{u}$}}
+\rput[bl](0.64,2.48){\qqzzff{$\overrightarrow{v}$}}
+\rput[bl](4.66,2.28){\qqzzqq{$d_1$}}
+\rput[bl](-2.7,2.7){\blue{$d_2$}}
+\rput[bl](-3.68,-1.2){\red{$d_3$}}
+\end{scriptsize}
+\end{pspicture*}
+\end{center}
+
+\begin{enumerate}
+\item Le vecteur $\overrightarrow{u}$ est-il un vecteur directeur de la droite $d_1$ ? de la droite $d_2$ ? Justifier.
+\item Le vecteur $\overrightarrow{v}$ est-il un vecteur directeur de la droite $d_1$ ? de la droite $d_2$ ? Justifier.
+\item Pour chaque droite, donner un autre vecteur directeur.  \textit{On donnera les coordonnées du vecteur.}
+\end{enumerate}
+
+\bigskip
+
+\exo 
+
+Dans chacune des questions suivantes, on donne les coordonnées de deux points $A$ et $B$ d'une droite $d$. On donne aussi les coordonnées d'un vecteur~$\overrightarrow{u}$. \par 
+Dans chaque cas, déterminer, en justifiant, si le vecteur $\overrightarrow{u}$ est un vecteur directeur de la droite $d$.
+
+\medskip
+
+\textbf{a)~}$A(6 ; -4)$ ; $B( -2 ; 8)$ ; $\overrightarrow{u} \begin{pmatrix} -2 \\ 3 \end{pmatrix}$ ; \quad \textbf{b)~}$A(-1 ; 2)$ ; $B( 39 ; 17)$ ; $\overrightarrow{u} \begin{pmatrix} 10 \\ 7 \end{pmatrix}$ ; \quad \textbf{c)~}$A(-10 ; -3)$ ; $B(3 ; 18)$ ; $\overrightarrow{u} \begin{pmatrix} -117 \\ -189 \end{pmatrix}$.
+
+%\begin{enumerate}
+%\item $A(6 ; -4)$ ; $B( -2 ; 8)$ ; $\overrightarrow{u} \begin{pmatrix} -2 \\ 3 \end{pmatrix}$.
+%\item $A(-1 ; 2)$ ; $B( 39 ; 17)$ ; $\overrightarrow{u} \begin{pmatrix} 10 \\ 7 \end{pmatrix}$.
+%\item $A(-10 ; -3)$ ; $B(3 ; 18)$ ; $\overrightarrow{u} \begin{pmatrix} -117 \\ -189 \end{pmatrix}$.
+%\end{enumerate}
+
+\bigskip
+
+\exo 
+
+Dans chacune des questions suivantes, on donne les coordonnées d'un point $A$ et d'un vecteur directeur $\overrightarrow{u}$ d'une droite $d$ OU les coordonnées de deux points $A$ et $B$ d'une droite $d$. On donne aussi les coordonnées d'un point~$M$. \par 
+Dans chaque cas, déterminer, en justifiant, si le point $M$ appartient à la droite $d$.
+
+\medskip
+
+{\small
+\textbf{a)~} $A(-1 ; -2)$ ; $\overrightarrow{u} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ ; $M(11 ; 10)$ ;~~ \textbf{b)~} $A(-4 ; 3)$ ; $\overrightarrow{u} \begin{pmatrix} 6 \\ -5 \end{pmatrix}$ ; $M(2 ; 7)$ ;~~ \textbf{c)~} $A(5 ; 3)$ ; $B(2 ; -3)$ ; $M(-1 ; -9)$ ;~~ \textbf{d)~} $A(1 ; -4)$ ; $B(8 ; 0)$ ; $M(13 ; 5)$.
+}
+
+%\begin{enumerate}
+%\item $A(-1 ; -2)$ ; $\overrightarrow{u} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ ; $M(11 ; 10)$.
+%\item $A(-4 ; 3)$ ; $\overrightarrow{u} \begin{pmatrix} 6 \\ -5 \end{pmatrix}$ ; $M(2 ; 7)$.
+%\item $A(5 ; 3)$ ; $B(2 ; -3)$ ; $M(-1 ; -9)$.
+%\item $A(1 ; -4)$ ; $B(8 ; 0)$ ; $M(13 ; 5)$.
+%\end{enumerate}
+
+\bigskip
+
+\exo 
+
+%{\small
+Dans un repère tracé sur votre cahier :
+
+\begin{enumerate}
+\item Tracer la droite $d_1$ passant par le point $A(1;1)$ et dont un vecteur directeur est $\overrightarrow{u} \begin{pmatrix} 3 \\ 3 \end{pmatrix}$.
+\item Tracer la droite $d_2$ passant par le point $B(-1;3)$ et dont un vecteur directeur est $\overrightarrow{v} \begin{pmatrix} 4 \\ -2 \end{pmatrix}$.
+\item Tracer la droite $d_3$ passant par le point $C(3;-0,5)$ et dont un vecteur directeur est $\overrightarrow{w} \begin{pmatrix} 5 \\ 3 \end{pmatrix}$.
+\end{enumerate}
+%}
+
+\bigskip
+
+\end{document}

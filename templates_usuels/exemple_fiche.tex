@@ -1,0 +1,263 @@
+\documentclass[12pt]{beamer}
+\usetheme{Boadilla}
+\usecolortheme{seahorse}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{tikz,tkz-tab}
+
+\usepackage{pgf,pgfplots}
+\pgfplotsset{compat=1.14}
+\usetikzlibrary{arrows}
+
+\usefonttheme[onlymath]{serif}
+
+%\author{}
+\title{Calculer des dérivées}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+
+\section{Tableau des dérivées usuelles}
+
+\begin{frame}{Tableau récapitulatif des dérivées}
+\begin{center}
+\includegraphics[scale=0.7]{tableau_derivees.pdf}
+\end{center}
+\end{frame}
+
+\section{Opérations sur les dérivées}
+
+\subsection{Somme de deux fonctions}
+
+\begin{frame}{Somme de deux fonctions - Propriété}
+Soit $I$ un intervalle de $\mathbb{R}$ et $u$ et $v$ deux fonctions définies et dérivables sur $I$.
+
+\medskip
+\begin{exampleblock}{Propriété}
+Soit la fonction $f$ définie sur $I$ par : $f(x) = u(x) + v(x)$. \par 
+La fonction dérivée, notée $f'(x)$, est \[ f'(x) = u'(x) + v'(x). \]
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Somme de deux fonctions - Exemple}
+\begin{block}{Exemple}
+Soit la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = x^2 + \cos(x)$. \par 
+Calculer sa dérivée $f'(x)$.
+\end{block}
+
+\medskip
+
+$f$ est définie comme la somme de deux fonctions. Donc :
+
+\medskip
+
+\begin{tabular}{rcl}
+$f(x)$ & $=$ & $\underbrace{x^2 + \cos(x)}_{\textcolor{red}{u(x) + v(x)}}$ \\
+\end{tabular}
+
+\medskip
+
+\begin{tabular}{rcl}
+$f'(x)$ & $=$ & $\overbrace{2x + (-\sin(x))}^{\textcolor{red}{u'(x) + v'(x)}}$ \\
+$f'(x)$ & $=$ & $2x -\sin(x)$
+\end{tabular}
+
+\medskip
+
+Donc \fbox{$f'(x) = 2x-\sin(x)$}.
+
+\end{frame}
+
+
+\subsection{Produit d'un réel par une fonction}
+
+\begin{frame}{Produit d'un réel par une fonction - Propriété}
+Soit $I$ un intervalle de $\mathbb{R}$, $u$ une fonction définie et dérivable sur $I$ et $k$ un nombre réel. 
+
+\medskip
+
+\begin{exampleblock}{Propriété}
+Soit la fonction $f$ définie sur $I$ par : $f(x) = k \times u(x)$. \par 
+La fonction dérivée, notée $f'(x)$, est \[ f'(x) = k \times u'(x). \]
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Produit d'une réel par une fonction - Exemple}
+\begin{block}{Exemple}
+Soit la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = 5x^3$. \par 
+Calculer sa dérivée $f'(x)$.
+\end{block}
+
+\medskip
+
+$f$ est définie comme le produit d'un nombre réel par une fonction. Donc :
+
+\medskip
+
+\begin{tabular}{rcl}
+$f(x)$ & $=$ & $\underbrace{5x^3}_{\textcolor{red}{k \times u(x)}}$
+\end{tabular}
+
+\medskip
+
+\begin{tabular}{rcl}
+$f'(x)$ & $=$ & $\overbrace{5 \times 3x^2}^{\textcolor{blue}{k \times u'(x)}}$ \\
+$f'(x)$ & $=$ & $15x^2$
+\end{tabular}
+
+\medskip
+
+Donc \fbox{$f'(x) = 15x^2$}.
+
+\end{frame}
+
+\subsection{Produit de deux fonctions}
+
+\begin{frame}{Produit de deux fonctions - Propriété}
+Soit $I$ un intervalle de $\mathbb{R}$, $u$ et $v$ deux fonctions définies et dérivables sur $I$.
+
+\medskip
+
+\begin{exampleblock}{Propriété}
+Soit la fonction $f$ définie sur $I$ par : $f(x) = u(x) \times v(x)$. \par 
+La fonction dérivée, notée $f'(x)$, est \[ f'(x) = u'(x) \times v(x) + u(x) \times v'(x). \]
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Produit de deux fonctions - Exemple}
+\begin{block}{Exemple}
+Soit la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = (2x+5)\sin(x)$. \par 
+Calculer sa dérivée $f'(x)$.
+\end{block}
+
+\medskip
+
+$f$ est définie comme le produit de deux fonctions. Donc :
+
+\medskip
+
+$f(x) = u(x) \times v(x)$, avec : 
+
+\medskip
+
+\begin{flushleft}
+$u(x) = 2x+5$ ; \hspace{0.5cm} $u'(x) = 2$ ; \par
+$v(x) = \sin(x)$ ; \hspace{0.5cm} $v'(x) = \cos(x)$.
+\end{flushleft}
+
+\medskip
+
+\begin{tabular}{rcl}
+$f'(x)$ & $=$ & $u'(x) \times v(x) + u(x) \times v'(x)$ \\
+$f'(x)$ & $=$ & $2 \times \sin(x) + (2x+5) \times \cos(x)$
+\end{tabular}
+
+\medskip
+
+Donc \fbox{$f'(x) =  2 \sin(x) + (2x+5) \cos(x)$}.
+
+\end{frame}
+
+\subsection{Quotient de deux fonctions}
+
+\begin{frame}{Quotient de deux fonctions - Propriété}
+Soit $I$ un intervalle de $\mathbb{R}$, $u$ une fonction définie et dérivable sur $I$ et $v$ une fonction définie et dérivable sur $I$ ne s'annulant pas sur $I$.
+
+\medskip
+
+\begin{exampleblock}{Propriété}
+Soit la fonction $f$ définie sur $I$ par : $f(x) = \dfrac{u(x)}{v(x)}$. \par 
+La fonction dérivée, notée $f'(x)$, est \[ f'(x) = \dfrac{u'(x) \times v(x) - u(x) \times v'(x)}{v(x)^2}. \]
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Quotient de deux fonctions - Exemple}
+\begin{block}{Exemple}
+Soit la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = \dfrac{x^2+1}{\sin(x)}$. \par 
+Calculer sa dérivée $f'(x)$.
+\end{block}
+
+\medskip
+
+$f$ est définie comme le quotient de deux fonctions. Donc :
+
+\medskip
+
+$f(x) = \dfrac{u(x)}{v(x)})$, avec : 
+
+\medskip
+
+\begin{flushleft}
+$u(x) = x^2+1$ ; \hspace{0.5cm} $u'(x) = 2x+1$ ; \par
+$v(x) = \sin(x)$ ; \hspace{0.5cm} $v'(x) = \cos(x)$.
+\end{flushleft}
+
+\medskip
+
+\end{frame}
+
+\begin{frame}{Quotient de deux fonctions - Exemple - suite}
+\begin{tabular}{rcl}
+$f'(x)$ & $=$ & $\dfrac{u'(x) \times v(x) - u(x) \times v'(x)}{v(x)^2}$ \\
+$f'(x)$ & $=$ & $\dfrac{(2x+1) \times \sin(x) - (x^2+1) \times \cos(x)}{(5x-12)^2}$.
+\end{tabular}
+
+\medskip
+
+Donc \fbox{$f'(x) = \dfrac{(2x+1)\sin(x) - (x^2+1)\cos(x)}{(5x-12)^2}$}.
+\end{frame}
+
+\section{Remarques}
+
+\subsection{Tableau récapitulatif des opérations}
+
+\begin{frame}{Tableau récapitulatif des opérations}
+\begin{center}
+\includegraphics[scale=0.9]{tableau_operations.pdf}
+\end{center}
+\end{frame}
+
+\subsection{Comment calculer une dérivée ?}
+
+\begin{frame}{Comment calculer une dérivée ?}
+Lorsqu'on doit calculer la dérivée d'une fonction, la première chose à faire est d'analyser l'expression de la fonction.
+
+\medskip
+
+On doit se demander si 
+
+\begin{itemize}
+\item Est-ce une somme ? 
+\item Est-ce le produit d'un nombre par un réel ?
+\item Est-ce un produit ? 
+\item Est-ce un quotient ? 
+\item Est-ce une somme de produits ? 
+\end{itemize}
+
+\medskip
+
+Puis, on applique les méthodes vues dans cette fiche !
+
+\end{frame}
+
+\end{document}

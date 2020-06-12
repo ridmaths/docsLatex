@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier}
+\usepackage[scaled=0.875]{helvet} 
+\renewcommand{\ttdefault}{lmtt} 
+\usepackage{eurosym}
+\usepackage[french]{babel}
+\usepackage[np]{numprint}
+\usepackage{amsmath,amssymb,mathrsfs}
+\usepackage{pstricks,pst-plot,pstricks-add}
+
+\definecolor{vert}{RGB}{24,128,48}
+
+\begin{document}
+
+%% Configuration
+\psset{algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=1.6pt,arrowsize=3pt 2,arrowinset=0.25}
+
+\begin{pspicture*}(-5,-5)(5,5)
+
+%% Grille
+% Lignes horizontales
+\multips(0,-5)(0,1){11}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(-5,0)(5,0)}
+% Lignes verticales
+\multips(-5,0)(1,0){11}{\psline[linestyle=dashed,linecap=1,dash=1.5pt 1.5pt,linewidth=1pt,linecolor=lightgray]{c-c}(0,-5)(0,5)}
+
+%% Axes
+\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=1]{->}(0,0)(-5,-5)(5,5)
+
+%% Tracé des fonctions
+% Fonction
+\psplot[linewidth=2.pt,linecolor=blue]{-5}{5}{(2/3)*x+1}
+\rput[bl](-3.5,-1.7){\textcolor{blue}{$d$}}
+% Fonction
+\psplot[linewidth=2.pt,linecolor=red]{-5}{5}{-1.5*x+3.5}
+\rput[bl](3.5,-1.5){\textcolor{red}{$d'$}}
+\end{pspicture*}
+\end{document}

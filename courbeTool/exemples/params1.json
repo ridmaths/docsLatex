@@ -1,0 +1,35 @@
+{
+	"nom" : "mongraphique",
+	"axes" : {
+				"xmin" : -5,
+				"xmax" : 5,
+				"ymin" : -5,
+				"ymax" : 5
+			},
+	"pasGrille" : {
+					"xpas" : 1,
+					"ypas" :1
+				},
+	"fonctions" : [
+		{
+			"expression" : "(2/3)*x+1",
+			"type" : "droite", 
+			"couleur" : "blue",
+			"nom" : "d",
+			"coordNom" : [3.5,-1.5]
+		},
+		{
+			"expression" : "-1.5*x+3.5",
+			"type" : "droite", 
+			"couleur" : "red",
+			"nom" : "d'",
+			"coordNom" : [3.5,-1.5]
+		},
+		{
+			"expression" : "x^2",
+			"type" : "fonction", 
+			"couleur" : "green"
+		}
+	]
+
+}

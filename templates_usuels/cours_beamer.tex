@@ -1,0 +1,458 @@
+\documentclass[12pt]{beamer}
+\usetheme{Boadilla}
+\usecolortheme{seahorse}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{tikz,tkz-tab}
+
+\usepackage{pstricks-add}
+%\usepackage{pstricks,pst-plot,pst-text,pst-tree,pstricks-add,pst-grad,pst-coil,pst-blur}
+
+%\usepackage{pgf,pgfplots}
+%\pgfplotsset{compat=1.14}
+\usetikzlibrary{arrows}
+
+\usefonttheme[onlymath]{serif}
+
+\title[Droites du plan]{Chapitre 12 - Droites du plan}
+\author{2GT4}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+\date{} 
+%\subject{} 
+
+\defbeamertemplate{subsection in toc}{bullets}{%
+  \leavevmode
+  \parbox[t]{2em}{\phantom{looooll}\hfill}%
+  \parbox[t]{1em}{\textbullet\hfill}%
+  \parbox[t]{\dimexpr\textwidth-3em\relax}{\inserttocsubsection}\par}
+\defbeamertemplate{section in toc}{sections numbered roman}{%
+  \leavevmode%
+  \MakeUppercase{\romannumeral\inserttocsectionnumber}~-\ %
+  \inserttocsection\par}
+
+\setbeamertemplate{section in toc}[sections numbered roman]
+\setbeamertemplate{subsection in toc}[bullets]
+
+\makeatletter
+\newcommand{\setnextsection}[1]{%
+  \setcounter{section}{\numexpr#1-1\relax}%
+  \beamer@tocsectionnumber=\numexpr#1-1\relax\space}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+
+\begin{center} \textbf{Partie 2/4} \end{center}
+\end{frame}
+
+\begin{frame}
+{\Large \textbf{Plan} }
+
+\medskip
+
+\tableofcontents
+\end{frame}
+
+\setnextsection{2}
+
+\section{Équation cartésienne d'une droite}
+
+\subsection{Introduction}
+
+\begin{frame}{II - Équation cartésienne}
+
+Dans la partie précédente, nous avons vu la notion de \og vecteur directeur \fg{} pour une droite. 
+
+\bigskip
+
+Une droite peut être caractérisée par deux points ou un point et un vecteur directeur.
+
+\bigskip
+
+Dans cette partie, nous allons voir que les droites peuvent être caractérisées à l'aide d'une équation, appelée \textbf{équation cartésienne}.
+\end{frame}
+
+\subsection{Équation cartésienne}
+
+\begin{frame}{Propriété}
+
+\begin{exampleblock}{Propriété}
+Dans une repère du plan, les coordonnées $(x;y)$ de tous les points $M$ d'une droite $d$ vérifient une équation de la forme \[ax+by+c = 0\]
+où $a$, $b$ et $c$ sont des nombres réels tels que $a$ et $b$ ne sont pas simultanément nuls. \par 
+On notera par la suite $(a;b) \neq (0;0)$. \par 
+Une telle équation s'appelle une \textbf{équation cartésienne} de la droite $d$.
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Remarques}
+
+\textbf{Remarques : }
+
+\begin{itemize}
+\item Une droite $d$ peut être caractérisée par une équation de la forme $ax+by+c = 0$ où $a$, $b$ et $c$ sont des réels avec $(a;b) \neq (0;0)$. \par 
+Nous verrons dans la suite comment déterminer une telle équation pour une droite. 
+
+\item Cette équation n'est pas unique : une droite $d$ admet une infinité d'équations cartésiennes. On constate alors que les coefficients sont deux à deux proportionnels.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+Dans la suite :
+
+\begin{itemize}
+\item nous allons voir une démonstration de cette propriété ;
+\item nous allons voir comment déterminer une telle équation pour une droite.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Démonstration}
+
+Soit $A(x_A ; y_A)$ un point de la droite $d$ et $\overrightarrow{u} \begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ un vecteur directeur de $d$. 
+
+\medskip
+
+Le point $M(x;y)$ appartient à la droite $d$ si, et seulement si, les vecteurs $\overrightarrow{AM}$ et $\overrightarrow{u}$ sont colinéaires. 
+
+\medskip
+
+On a : $\overrightarrow{AM} \begin{pmatrix} x-x_A \\ y-y_A \end{pmatrix}$ et $\overrightarrow{u} \begin{pmatrix} \alpha \\ \beta \end{pmatrix}$.
+
+\medskip
+
+Les vecteurs $\overrightarrow{AM}$ et $\overrightarrow{u}$ sont colinéaires si, et seulement si, $\det(\overrightarrow{AM} ; \overrightarrow{u}) = 0$.
+
+\end{frame}
+
+\begin{frame}{Suite de la démonstration}
+Les vecteurs $\overrightarrow{AM}$ et $\overrightarrow{u}$ sont colinéaires si, et seulement si, $\det(\overrightarrow{AM} ; \overrightarrow{u}) = 0$.
+
+\medskip
+
+$M(x;y) \in d$ $\Longleftrightarrow$ $\det(\overrightarrow{AM} ; \overrightarrow{u}) = 0$ \par 
+\phantom{$M(x;y) \in d$} $\Longleftrightarrow$ $\beta(x-x_A) - \alpha (y-y_A) = 0$ \par 
+\phantom{$M(x;y) \in d$} $\Longleftrightarrow$ $\beta x -\beta x_A - \alpha y + \alpha y_A = 0$ \par 
+\phantom{$M(x;y) \in d$} $\Longleftrightarrow$ $\beta x - \alpha y + (-\beta x_A + \alpha y_A) = 0$
+
+\bigskip
+
+On obtient bien une équation de la forme $ax+by+c = 0$ avec $a = \beta$, $b = -\alpha$ et $c = -\beta x_A + \alpha y_A$. \par 
+Le vecteur $\overrightarrow{u}$ étant non nul, on a bien : $(a;b) \neq (0;0)$.
+\end{frame}
+
+\subsection{Exemple - Méthode - Important}
+
+\begin{frame}{Exemple}
+
+\textbf{Exemple : } soit la droite $d$ passant par $A(1;3)$ et dont un vecteur directeur est $\overrightarrow{u} \begin{pmatrix} 2 \\ 5\end{pmatrix}$. \par 
+Déterminer une équation cartésienne de la droite $d$. 
+
+\bigskip
+
+\textit{Réponse (et méthode pour les exercices ) :}
+
+\medskip
+
+Soit $M(x;y)$ appartenant à la droite $d$. 
+
+\medskip
+
+Le vecteur $\overrightarrow{u}$ est un vecteur directeur pour la droite $d$. D'après la définition, les points $A$ et $M$ appartenant à la droite $d$, on sait que les vecteurs $\overrightarrow{AM}$ et $\overrightarrow{u}$ sont colinéaires. 
+\end{frame}
+
+\begin{frame}
+Or: $\overrightarrow{AM}$ et $\overrightarrow{u}$  sont colinéaires $\Longleftrightarrow$ $\det(\overrightarrow{AM} ; \overrightarrow{u}) = 0$.
+
+\bigskip
+
+$A(1;3)$ et $M(x;y)$ donc : $\overrightarrow{AM} \begin{pmatrix} x-1 \\ y-3 \end{pmatrix}$.
+
+\medskip
+
+On a : $\overrightarrow{AM} \begin{pmatrix} x-1 \\ y-3 \end{pmatrix}$ et $\overrightarrow{u} \begin{pmatrix} 2 \\ 5\end{pmatrix}$.
+
+\medskip
+
+Puis : $\det(\overrightarrow{AM} ; \overrightarrow{u}) = 5(x-1) - 2(y-3)$
+
+\end{frame}
+
+\begin{frame}
+$\overrightarrow{AM}$ et $\overrightarrow{u}$  sont colinéaires $\Longleftrightarrow$ $\det(\overrightarrow{AM} ; \overrightarrow{u}) = 0$ \par 
+\phantom{$\overrightarrow{AM}$ et $\overrightarrow{u}$  sont colinéaires }$\Longleftrightarrow$ $5(x-1) - 2(y-3) = 0$ \par 
+\phantom{$\overrightarrow{AM}$ et $\overrightarrow{u}$  sont colinéaires }$\Longleftrightarrow$ $5x-5 - 2y+6 = 0$ \par
+\phantom{$\overrightarrow{AM}$ et $\overrightarrow{u}$  sont colinéaires }$\Longleftrightarrow$ $5x -2y+1 = 0$ \par 
+
+\bigskip
+
+\fbox{Une équation cartésienne de la droite $d$ est $5x-2y+1=0$.}
+\end{frame}
+
+\begin{frame}{Résumé de la méthode précédente}
+
+Tout a été détaillé dans l'exemple précédente. Voici un résumé de la méthode à appliquer en exercice :
+
+\bigskip
+
+Comment déterminer une équation cartésienne d'une droite $d$ en partant d'un point $A$ et d'un vecteur directeur $\overrightarrow{u}$ :
+
+\bigskip
+
+\begin{enumerate}
+\item Soit $M(x;y)$ appartenant à la droite $d$. On donne les coordonnées de $\overrightarrow{AM}$ en fonction de $x$ et $y$.
+\item Le vecteur $\overrightarrow{u}$ est un vecteur directeur de $d$ : les vecteurs $\overrightarrow{u}$ et $\overrightarrow{AM}$ sont colinéaires. 
+\item Deux vecteurs sont colinéaires si et seulement si le déterminant est nul : on calcule $\det(\overrightarrow{AM} ; \overrightarrow{u})$ et ce nombre doit être égal à $0$.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Remarque}
+
+\textbf{Remarque : } la méthode précédente nous donne un moyen de déterminer une équation cartésienne pour une droite $d$ connaissant un point $A$ et un vecteur directeur $\overrightarrow{u}$.
+
+\bigskip
+
+Si on a deux points $A$ et $B$ d'une droite $d$, on se rappelle que le vecteur $\overrightarrow{AB}$ est un vecteur directeur de la droite $d$. \par 
+Cela nous permet d'obtenir un vecteur directeur pour ensuite appliquer la méthode précédente. 
+
+\end{frame}
+
+\subsection{Propriété réciproque}
+
+\begin{frame}{Propriété réciproque}
+
+\begin{exampleblock}{Propriété}
+L'ensemble des points $M$ dont les coordonnées $(x;y)$ vérifient une équation de la forme $ax+by+c=0$, où $a$, $b$ et $c$ sont des réels et $(a;b) \neq (0;0)$, est une droite. 
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Méthode}
+
+\textbf{Pour montrer qu'un point $A(x_A;y_A)$ appartient (ou pas) une droite} :
+
+\bigskip
+
+On considère la droite $d$ dont une équation cartésienne est donné par $ax + by + c = 0$.
+
+\medskip
+
+On sait que : le point $A(x_A ; y_A)$ appartient à la droite $d$ si, et seulement si, $ax_A + by_A + c = 0$. 
+
+\bigskip
+
+Cela donne une méthode pour montrer qu'un point appartient ou n'appartient pas à la droite :
+
+\begin{itemize}
+\item Si $ax_A + by_A + c = 0$ alors le point $A$ appartient à la droite $d$.
+\item Si $ax_A + by_A + c \neq 0$ alors le point $A$ n'appartient pas à la droite $d$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Exemple}
+
+\textbf{Exemple :} Soit la droite $d$ dont une équation cartésienne est $-2x+3y + 5 = 0$.
+
+\medskip
+
+\begin{enumerate}
+\item Le point $A(4;1)$ appartient-il à la droite $d$ ?
+\item Le point $B(-2;-2)$ appartient-il à la droite $d$ ?
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Corrigé de l'exemple}
+
+\textbf{Exemple :} Soit la droite $d$ dont une équation cartésienne est $-2x+3y + 5 = 0$.
+
+\medskip
+
+\begin{enumerate}
+\setcounter{enumi}{0}
+\item Le point $A(4;1)$ appartient-il à la droite $d$ ?
+\end{enumerate}
+
+On a : 
+
+\medskip
+
+$-2 \times x_A + 3 \times y_A + 5 = -2 \times 4 + 3 \times 1 + 5$ \par 
+$\phantom{-2 \times x_A + 3 \times y_A + 5} = -8 + 3 + 5$ \par 
+$\phantom{-2 \times x_A + 3 \times y_A + 5} = 0$
+
+\bigskip
+
+Donc $-2 \times x_A + 3 \times y_A + 5 = 0$. 
+
+\medskip
+
+Le point $A$ appartient à la droite $d$.
+\end{frame}
+
+\begin{frame}{Corrigé de l'exemple}
+
+\textbf{Exemple :} Soit la droite $d$ dont une équation cartésienne est $-2x+3y + 5 = 0$.
+
+\medskip
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Le point $B(-2;-2)$ appartient-il à la droite $d$ ?
+\end{enumerate}
+
+On a : 
+
+\medskip
+
+$-2 \times x_B + 3 \times y_B + 5 = -2 \times (-2) + 3 \times (-2) + 5$ \par 
+$\phantom{-2 \times x_A + 3 \times y_A + 5} = 4 - 6 + 5$ \par 
+$\phantom{-2 \times x_A + 3 \times y_A + 5} = 3$
+
+\bigskip
+
+Donc $-2 \times x_B + 3 \times y_B + 5 \neq 0$. 
+
+\medskip
+
+Le point $B$ n'appartient pas à la droite $d$.
+
+\end{frame}
+
+\begin{frame}{Autre exemple}
+
+\textbf{Exemple : } On considère la droite $d$ dont une équation cartésienne est $4x+2y-10 = 0$. Déterminer deux points distincts appartenant à la droite $d$.
+
+\bigskip
+
+\textit{Réponse :} En utilisant l'équation cartésienne, il suffit de choisir $x$ et d'en déduire la valeur de $y$.
+
+\medskip
+
+Pour $x = 0$, on a : $4 \times 0 + 2y - 10 = 0$ donc $2y-10 = 0$. Puis : \par 
+$2y-10 = 0 \Longleftrightarrow 2y = 10 \Longleftrightarrow y = 5$.
+
+\medskip
+
+$\bullet$ Le point $A(0;5)$ appartient à la droite $d$.
+
+\medskip
+
+Pour $x = 2$, on a : $4 \times 2 + 2y - 10 = 0$ donc $8 + 2y-10 = 0$. Puis : \par 
+$8 + 2y-10 = 0 \Longleftrightarrow 2y-2 = 0 \Longleftrightarrow 2y = 2 \Longleftrightarrow y = 1$.
+
+\medskip
+
+$\bullet$ Le point $B(2;1)$ appartient à la droite $d$.
+
+\end{frame}
+
+\begin{frame}{Remarque}
+
+L'exemple précédent est important car : à partir d'une équation cartésienne pour une droite, on détermine deux points appartenant à la droite.
+
+\bigskip
+
+Si on veut tracer la droite dont une équation cartésienne, il suffit de trouver de cette manière deux points distincts appartenant à la droite, de les placer dans un repère et on obtient notre droite en traçant la droite qui passe par ces deux points. 
+
+\end{frame}
+
+\subsection{Un vecteur directeur}
+
+\begin{frame}{Propriété }
+
+\begin{exampleblock}{Propriété}
+On considère une droite $d$ dont une équation cartésienne est donnée par : $ax+by+c = 0$. \par 
+Le vecteur $\overrightarrow{u} \begin{pmatrix} -b \\ a \end{pmatrix}$ est un vecteur directeur de~$d$.
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Remarque}
+
+\textbf{Remarque : } La propriété précédente permet, étant donnée une équation cartésienne d'une droite $d$, de déterminer rapidement un vecteur directeur de la droite $d$.
+
+\end{frame}
+
+\begin{frame}{Exemple}
+
+\textbf{Exemple : } On considère la droite $d$ dont une équation cartésienne est $2x-3y-12=0$.
+
+\bigskip
+
+Une équation cartésienne de $d$ est de la forme $ax+by+c=0$ avec $a = 2$ et $b = -3$. 
+
+\bigskip
+
+D'après la propriété précédente, $\overrightarrow{u} \begin{pmatrix} -b \\ a \end{pmatrix}$ est un vecteur directeur de~$d$. 
+
+\medskip
+
+$-b = -(-3) = 3$ et $a = 2$.
+
+\medskip
+
+Donc $\overrightarrow{u} \begin{pmatrix} 3 \\ 2 \end{pmatrix}$ est un vecteur directeur de $d$. 
+
+
+\end{frame}
+
+
+\begin{frame}{Autre exemple}
+
+\textbf{Exemple :} Déterminer une équation cartésienne de la droite $d$ passant par le point $A(4;7)$ et dont un vecteur directeur est $\overrightarrow{u} \begin{pmatrix} 5 \\ 11 \end{pmatrix}$.
+
+\bigskip
+
+\textit{Réponse : } d'après la propriété précédente, la droite $d$ admet une équation de la forme $ax+by+c = 0$ ou le vecteur $\overrightarrow{u} \begin{pmatrix} -b \\ a \end{pmatrix}$ est un vecteur directeur de $d$. 
+
+\medskip
+
+Donc $-b = 5$ et $a = 11$. Ce qui donne $a=11$ et $b = -5$.
+
+\end{frame}
+
+\begin{frame}
+Une équation cartésienne de la droite $d$ est $11x-5y+c = 0$.
+
+\bigskip
+
+Pour trouver la valeur $c$, nous allons utiliser le point $A$
+
+\bigskip
+
+$A(\textcolor{blue}{4};\textcolor{red}{7}) \in d \Longleftrightarrow 11 \times \textcolor{blue}{4} + (-5) \times \textcolor{red}{7} + c = 0$ \par  
+$\phantom{A(\textcolor{blue}{4};\textcolor{red}{7}) \in d} \Longleftrightarrow 44 -35 + c = 0$ \par 
+$\phantom{A(\textcolor{blue}{4};\textcolor{red}{7}) \in d} \Longleftrightarrow 9 + c = 0$ \par 
+$\phantom{A(\textcolor{blue}{4};\textcolor{red}{7}) \in d} \Longleftrightarrow c = -9$.
+
+
+\bigskip
+
+Une équation cartésienne de la droite $d$ est $11x-5y - 9 =0 $.
+
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\textbf{Fin de la partie 2}
+\end{center}
+
+Feuille d'exercices 2 à traiter !
+\end{frame}
+
+\end{document}

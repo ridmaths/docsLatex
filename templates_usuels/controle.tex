@@ -1,0 +1,308 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages Ecriture
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier}
+\usepackage[scaled=0.875]{helvet} 
+\renewcommand{\ttdefault}{lmtt} 
+\usepackage{eurosym}
+\usepackage[frenchb]{babel}
+\usepackage[np]{numprint}
+
+% Packages Mise en page
+\usepackage{geometry} % Permet la mise en page
+\geometry{lmargin=1.5cm,rmargin=1.5cm,tmargin=1.5cm,bmargin=1cm} % Choix format et  des marges
+\usepackage{fancyhdr}
+\usepackage{framed} % Création d'environnements
+\usepackage[framed,thmmarks]{ntheorem} % Gestions des environnements theorem
+\usepackage{lastpage}
+
+\usepackage{amsmath,amssymb,makeidx}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{fancybox,graphicx}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{dcolumn}
+\usepackage{textcomp}
+\usepackage{diagbox}
+\usepackage{tabularx}
+\usepackage{lscape}
+\usepackage{pstricks,pst-plot,pst-text,pst-tree,pstricks-add,pst-grad,pst-coil,pst-blur}
+\usepackage[pstricks]{bclogo} % Logo
+%\setlength\paperheight{297mm}
+%\setlength\paperwidth{210mm}
+%\setlength{\textheight}{25cm}
+
+\usepackage{hyperref}
+
+%\thispagestyle{empty}
+%\usepackage[frenchb]{babel}
+%\usepackage[np]{numprint}
+
+\usepackage{pgf,tikz,tkz-tab}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+%\usepackage{showframe}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DecimalMathComma	% Définit la virgule comme séparateur entre la partie entière et la partie décimale
+
+
+\def\Oij{$\left(\textrm{O},~\vec{\imath},~\vec{\jmath}\right)$}
+\def\Oijk{$\left(\textrm{O},~\vec{\imath},~\vec{\jmath},~\vec{k}\right)$}
+\def\Ouv{$\left(\textrm{O},~\vec{u},~\vec{v}\right)$}
+
+\newcommand{\vect}[1]{\mathchoice%
+{\overrightarrow{\displaystyle\mathstrut#1\,\,}}%
+{\overrightarrow{\textstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptscriptstyle\mathstrut#1\,\,}}}
+
+\newcommand{\equi}{\Leftrightarrow}
+\newcommand{\pg}{\geqslant}
+\newcommand{\pp}{\leqslant}
+\newcommand{\dt}{\,\mathrm{d}t}
+\newcommand{\dx}{\,\mathrm{d}x}
+
+\newcommand{\N}{\mbox{${\mathbb N}$}}
+\newcommand{\Z}{\mbox{${\mathbb Z}$}}
+\newcommand{\Q}{\mbox{${\mathbb Q}$}}
+\newcommand{\R}{\mbox{${\mathbb R}$}}
+\newcommand{\C}{\mbox{${\mathbb C}$}}
+
+%Commande pour créer des lignes de pointillés
+\newcommand{\Pointilles}[1][3]{%
+\multido{}{#1}{\makebox[\linewidth]{\dotfill}\\[\parskip]
+}}
+
+\DeclareMathOperator{\e}{e} %Permet d'écrire "droit" le e de l'exponentielle
+
+\let\oldarray=\array
+\def\array{\small\oldarray} % Permet d'écrire plus petit dans le tableau
+
+\renewcommand{\arraystretch}{1.2} % Permet de gérer la hauteur des lignes des tableaux
+
+\parindent=0mm % Supprime l'alinéa
+
+\setlength{\fboxsep}{2mm} % Gère l'espacement entre un cadre et son contenu
+
+\renewcommand{\thesection}{\Roman{section}.} % Numérote les sections en chiffre romain
+\renewcommand{\thesubsection}{\Alph{subsection}.}
+
+
+\newcounter{nexo}
+\setcounter{nexo}{0}
+\newcommand{\exo}{%
+\stepcounter{nexo}
+{\textbf{\underline{\textsc{Exercice \arabic{nexo}}}}%
+\bigskip%
+}
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+%\thispagestyle{empty}
+
+\setlength\parindent{0mm}
+
+~\vspace{-1.5cm}
+
+\begin{center} \huge{\framebox{\textbf{Contrôle n°1 de Mathématiques - 2GT4}}} \end{center}
+
+\begin{center} \Large{Lundi 7 octobre 2019} \end{center}
+
+\medskip
+
+Nom : \dotfill Prénom : \dotfill
+
+\medskip
+
+\textit{Toutes les réponses devront être justifiées.} \textit{Le barème est donné à titre indicatif.} \par 
+\textbf{Le sujet est recto-verso ! NE PAS OUBLIER DE RETOURNER LA FEUILLE !!} \par 
+\textbf{Le sujet est à rendre avec la copie.}
+
+\bigskip
+
+\exo \hfill (5 points)
+
+Sur la figure donnée ci-dessous, on considère le parallélogramme $ABCD$. \par 
+Le point $E$ est l'image du point $D$ par la translation de vecteur $\overrightarrow{BA}$. \par 
+Soit le point $F$ tel que le point $D$ soit l'image du point $F$ par la translation de vecteur $\overrightarrow{EA}$. \par 
+
+\begin{center}
+\includegraphics[scale=0.6]{fig1.pdf}
+\end{center}
+
+\begin{enumerate}
+\item Placer les points $E$ et $F$ sur la figure ci-dessus.
+\item Justifier que : $\overrightarrow{AB} = \overrightarrow{ED}$. \par 
+Que peut-on en déduire de cette égalité ?
+\item Justifier que : $\overrightarrow{AB} = \overrightarrow{DC}$.
+\item À l'aide des questions 2 et 3, que peut-on dire du point $D$ ? Justifier.
+\item Justifier la nature du quadrilatère $FEBC$.
+\end{enumerate}
+
+\bigskip
+
+\exo \hfill (5 points)
+
+On considère la triangle $ABC$ donné ci-dessous.
+
+\begin{center}
+\includegraphics[scale=0.6]{fig2.pdf}
+\end{center}
+
+\begin{enumerate}
+\item Construire les points $I$, $J$ et $K$ définis par : 
+
+\medskip
+
+\text{a)~~} $\overrightarrow{AI} = \overrightarrow{AB} + \overrightarrow{AC}$ ; 
+
+\medskip
+
+\text{b)~~} $\overrightarrow{AJ} = \overrightarrow{AB} - \overrightarrow{AC}$ ; 
+
+\medskip
+
+\text{c)~~} $\overrightarrow{AK} = 2\overrightarrow{AB} - \overrightarrow{AC}$.
+
+\item Exprimer le vecteur $\overrightarrow{JA}$ en fonction des vecteurs $\overrightarrow{AB}$ et $\overrightarrow{AC}$.
+\item En utilisant la relation de Chasles, démontrer que $\overrightarrow{JK} = \overrightarrow{AB}$.
+\item Démontrer que $\overrightarrow{CI} = \overrightarrow{AB}$.
+\item Quelle est la nature du quadrilatère $CIKJ$ ? Justifier.
+\end{enumerate}
+
+\bigskip
+
+\vfill
+
+\begin{center} \textbf{Page 1 sur 2} \end{center}
+
+\newpage
+
+\exo \hfill (4 points)
+
+Pour chacun des nombres suivants, indiquer, en justifiant, le plus petit ensemble de nombres auquel il appartient. 
+
+\medskip
+
+\qquad \textbf{a)~~} $9$ ; \quad \textbf{b)~~} $\dfrac{13}{8}$ ; \quad \textbf{c)~~} $-\dfrac{5}{3}$ ; \quad \textbf{d)~~} $-\dfrac{72}{6}$ ; 
+
+\medskip
+
+\qquad \textbf{e)~~} $(-\sqrt{3})^6$ ; \quad \textbf{f)~~} $\sqrt{2 \times ((\sqrt{2})^2-1)}$.
+
+\bigskip
+
+\bigskip
+
+\exo \hfill (4 points)
+
+Écrire, \textbf{en détaillant}, chaque expression sous la forme $a^n$, où $a$ et $n$ sont des nombres relatifs :
+
+\medskip
+
+\qquad \textbf{a)~~} $A = 5^6 \times 5^{12}$ ; \quad \textbf{b)~~} $B = 11^{-4} \times (11^3)^5$ ; \quad \textbf{c)~~} $C = 5^{10} \times 7^{10}$ ; \par
+
+\medskip
+
+\qquad \textbf{d)~~} $D = \dfrac{70^9}{14^9}$ ; \quad \textbf{e)~~} $E = \dfrac{3^5}{3^6 \times 3^{14}}$ ; \quad \textbf{f)~~} $F = \dfrac{13^7 \times 13^3}{13^2 \times 13^4}$.
+
+\bigskip
+
+\bigskip
+
+\exo \hfill (3 points)
+
+Écrire, \textbf{en détaillant}, chaque expression sous la forme $\sqrt{a}$ avec $a > 0$.
+
+\medskip
+
+\qquad \textbf{a)~~} $A = \sqrt{3} \times \sqrt{5}$ ; \quad \textbf{b)~~} $B = \dfrac{\sqrt{45}}{\sqrt{9}}$ ; \quad \textbf{c)~~} $C = \sqrt{49} + \sqrt{25}$ ; \quad \textbf{d)~~} $D= 7\sqrt{3}$.
+
+\bigskip
+
+\bigskip
+
+\exo \hfill (4 points)
+
+Écrire, \textbf{en détaillant}, chaque expression sous la forme $a \sqrt{b}$, avec $a$ et $b$ entiers et $b$ étant le plus petit possible :
+
+\medskip
+
+\qquad \textbf{a)~~} $A = \sqrt{80}$ ; \quad \textbf{b)~~} $B = 6\sqrt{12}$ ; \quad \textbf{c)~~} $C = \sqrt{72} + 2\sqrt{128}$ ;  \quad \textbf{d)~~} $D = 2\sqrt{448} + 3\sqrt{1183} + \sqrt{1575}$.
+
+\vfill
+
+\begin{center} \textbf{Page 2 sur 2} \end{center}
+
+\end{document}
+
+\exo \hfill (4 points)
+
+Pour chacun des nombres suivants, indiquer, en justifiant, le plus petit ensemble de nombres auquel il appartient. 
+
+\medskip
+
+\qquad \textbf{a)~~} $9$ ; \quad \textbf{b)~~} $\dfrac{13}{8}$ ; \quad \textbf{c)~~} $-\dfrac{5}{3}$ ; \quad \textbf{d)~~} $-\dfrac{72}{6}$ ; \quad \textbf{e)~~} $(-\sqrt{3})^6$ ; \quad \textbf{f)~~} $\dfrac{\sqrt{128}}{\sqrt{2}}$ ; \quad \textbf{g)~~} $\sqrt{2 \times ((\sqrt{2})^2-1)}$.
+
+\bigskip
+
+\bigskip
+
+\exo \hfill (4 points)
+
+Écrire, \textbf{en détaillant}, chaque expression sous la forme $a^n$, où $a$ et $n$ sont des nombres relatifs :
+
+\medskip
+
+\qquad \textbf{a)~~} $A = 5^6 \times 5^{12}$ ; \quad \textbf{b)~~} $B = \dfrac{4^3}{4^{11}}$ ; \quad \textbf{c)~~} $C = 11^{-4} \times (11^3)^5$ ; \quad \textbf{d)~~} $D= 5^{10} \times 7^{10}$ ; \par
+
+\medskip
+
+\qquad \textbf{e)~~} $E= \dfrac{70^9}{14^9}$ ; \quad \textbf{f)~~} $F = \dfrac{3^5}{3^6 \times 3^{14}}$ ; \quad \textbf{g)~~} $G = \dfrac{13^7 \times 13^3}{13^2 \times 13^4}$.
+
+\bigskip
+
+\bigskip
+
+\exo \hfill (3 points)
+
+Écrire, \textbf{en détaillant}, chaque expression sous la forme $\sqrt{a}$ avec $a > 0$.
+
+\medskip
+
+\textbf{a)~~} $A = \sqrt{3} \times \sqrt{5}$ ; \quad \textbf{b)~~} $B = \dfrac{\sqrt{45}}{\sqrt{9}}$ ; \quad \textbf{c)~~} $C = \sqrt{49} + \sqrt{25}$ ; \quad \textbf{d)~~} $D= 7\sqrt{3}$.
+
+\bigskip
+
+\bigskip
+
+\exo \hfill (4 points)
+
+Écrire, \textbf{en détaillant}, chaque expression sous la forme $a \sqrt{b}$, avec $a$ et $b$ entiers et $b$ étant le plus petit possible :
+
+\medskip
+
+\qquad \textbf{a)~~} $A = \sqrt{80}$ ; \quad \textbf{c)~~} $C = 6\sqrt{12}$ ; \quad \textbf{d)~~} $D = \sqrt{28} + \sqrt{112}$ ; \par 
+
+\medskip
+
+\qquad \textbf{e)~~} $E= 3\sqrt{150} - 2\sqrt{96}$ ; \quad \textbf{f)~~} $F= \sqrt{448} + \sqrt{1183} + \sqrt{1575}$.
+
+
+\textbf{BONUS :}
+
+On admet que $\sqrt{2}$ est un nombre irrationnel. Montrer que le nombre $5\sqrt{2}$ est aussi un nombre irrationnel. 
+
+\bigskip
