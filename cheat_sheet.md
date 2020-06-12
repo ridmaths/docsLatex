@@ -23,7 +23,7 @@
 - [Tableau de signes fonction affine](#tableau-de-signes-fonction-affine)
 - [Tableau de signes fonction affine](#tableau-de-signes-fonction-affine)
 - [Signe d'un produit](#signe-dun-produit)
-- [Signe d'un produit](#signe-dun-quotient)
+- [Signe d'un quotient](#signe-dun-quotient)
 
 # Commandes usuelles
 
@@ -140,7 +140,7 @@ Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 \end{tikzpicture}
 ```
 
-## tableau de variations + signes
+## Tableau de variations + signes
 
 ```latex
 \begin{tikzpicture}
