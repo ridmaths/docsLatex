@@ -1,0 +1,34 @@
+%%%%%% Package %%%%%%
+
+\usepackage{tikz,tkz-tab}
+
+
+%%%%%% Exemple 1 %%%%%%
+
+\begin{tikzpicture}
+   \tkzTabInit{$x$ / 1 , $ax + b$ / 1}{$-\infty$, $-\dfrac{b}{a}$, $+\infty$}
+   \tkzTabLine{, \text{signe de } a, z, \text{signe de } -a, }
+\end{tikzpicture}
+
+
+%%%%%% Exemple 2 - Signe uniquement %%%%%%
+
+\begin{tikzpicture}
+   \tkzTabInit[lgt = 2.5, espcl = 3, deltacl = 0.7]{$x$ / 1 , $f(x)$ / 1}{$0$, $6$, $8$, $+\infty$}
+   \tkzTabLine{z, -, d, h, d, +, }
+\end{tikzpicture}
+
+
+%%%%%% Exemple 3 - Signe et variation %%%%%%
+
+
+\begin{tikzpicture}
+   \tkzTabInit{$x$ / 1 , $\cos(x)$ / 1, $\sin(x)$ / 1.5}{$0$, $\dfrac{\pi}{2}$, $\pi$}
+   \tkzTabLine{, +, z, -, }
+   \tkzTabVar{-/ 0, +/ 1, -/ 0}
+\end{tikzpicture}
+
+
+%%%%%% Pour élargir la double barre %%%%%%
+
+\tikzset{double style/.style = {double,very thick,double distance=2pt}}
