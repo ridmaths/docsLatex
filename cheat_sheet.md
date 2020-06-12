@@ -22,7 +22,7 @@ binomiale p parmi n : `\binom{n}{p}`
 
 algorithme :
 
-```
+```latex
 \fbox{%
 \begin{minipage}{3.7cm}
 $N \leftarrow 0$ \\
@@ -41,7 +41,7 @@ Fin Tant que
 
 ## Systèmes avancés 
 
-```
+```latex
 $\left\{
 \begin{array}{r c l}
 y & = & 7-5x \\
@@ -66,7 +66,7 @@ Exemple : Le vecteur `$\vecteur{u}{-2}{5}$`.
 
 Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 
-```
+```latex
 \begin{enumerate}[a)]
 \item 1
 \item 2
@@ -82,7 +82,7 @@ Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 
 ## Tableau avec des cellules centrées à l'intérieur
 
-```
+```latex
 \begin{center}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 \begin{tabular}{|l|M{2cm}|M{2cm}|p{2cm}|}
@@ -101,7 +101,7 @@ Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 
 ## Tableau de variations
 
-```
+```latex
 \begin{tikzpicture}
    \tkzTabInit{$x$ /0.8,Variations de $f$ /1.2} {$-\infty$ , $+\infty$}
    \tkzTabVar{-/$-\infty$ , +/$+\infty$}
@@ -117,7 +117,7 @@ Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 
 ## tableau de variations + signes :
 
-```
+```latex
 \begin{tikzpicture}
    \tkzTabInit{$x$ /1, Signe de $f'(x)$ /1, Variations de $f$ /1.5} {$1$ , $e$, $+\infty$}
    \tkzTabLine{, +, z, -, } 
@@ -131,7 +131,7 @@ Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 
 ## Tableau de signes fonction affine :
 
-```
+```latex
 \begin{tikzpicture}
    \tkzTabInit[lgt = 3, espcl = 3.5]{$x$ / 0.8 , Signe de $-6x+1$ / 1}{$-\infty$, $\frac{1}{6}$, $+\infty$}
    \tkzTabLine{, + , z, - , }
@@ -140,7 +140,7 @@ Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 
 Mode help pour tkz-tab (voir les noeuds) + exemple d'utilisation :
 
-```
+```latex
 \begin{tikzpicture}
    \tkzTabInit[lgt = 3, espcl = 3.5,help]{$x$ / 0.8 , Signe de $-6x+1$ / 1}{$-\infty$, $\frac{1}{6}$, $+\infty$}
    \tkzTabLine{, + , z, - , }
@@ -155,7 +155,7 @@ Mode help pour tkz-tab (voir les noeuds) + exemple d'utilisation :
 
 ## Signe d'un produit :
 
-```
+```latex
 \begin{center}
 \tkzTabSetup[tstyle = solid]
 \begin{tikzpicture}
@@ -169,7 +169,7 @@ Mode help pour tkz-tab (voir les noeuds) + exemple d'utilisation :
 
 ## Signe d'un quotient :
 
-```
+```latex
 \begin{center}
 \tkzTabSetup[tstyle = solid]
 \tikzset{double style/.style = {double,very thick,double distance=2pt}}
