@@ -21,7 +21,6 @@
 - [Tableau de variations et signes](#tableau-de-variations--signes)
 - [Trait plein dans les tableaux](#trait-plein-dans-les-tableaux-tkz-tab)
 - [Tableau de signes fonction affine](#tableau-de-signes-fonction-affine)
-- [Tableau de signes fonction affine](#tableau-de-signes-fonction-affine)
 - [Signe d'un produit](#signe-dun-produit)
 - [Signe d'un quotient](#signe-dun-quotient)
 
