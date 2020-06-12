@@ -14,11 +14,11 @@ Une représentation paramétrique de la droite `$(AG)$` est `$\begin{cases} x = 
 
 si et seulement si : 	`\Longleftrightarrow`
 
-## Binomaiale
+## Binomiale
 
 binomiale p parmi n : `\binom{n}{p}`
 
-## Binomaiale
+## Algorithme
 
 algorithme :
 

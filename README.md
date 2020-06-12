@@ -42,5 +42,5 @@ Le contenu est à écrire dans le fichier `feuille.md`. Puis on exécute le prog
 Le progamme `comp_md2pdf.bat` :
 * exécute pandoc pour transformer le fichier `feuille.md` en un fichier `contenu.tex` (le tex sans le préanmbule.) 
 * exécute ensuite le programme `makeLatex.py` qui contient le préanmbule utilisé pour le tex et génère le fichier `feuille.tex`
-* exécute latex en mode _quiet_ pour compiler ce tex et obtenir le pdf
+* execute latex en mode _quiet_ pour compiler ce tex et obtenir le pdf
 * supprime les fichiers inutiles. 
