@@ -1,12 +1,37 @@
 # Quelques rappels sur les commandes 
 
+## Sommaire 
+
+**Mémo syntaxe**
+
+- [Un vecteur](#un-vecteur)
+- [Un système](#un-système)
+- [Si et seulement si](#ssi)
+- [Binomiale](#binomiale)
+- [Algorithme](#algorithme)
+- [Tailles](#tailles-)
+- [Systèmes avancés](#systèmes-avancés)
+- [Item alpha](#alphabet-dans-les-numérotations)
+- [Item alpha 2](#alphabet-dans-les-numérotations-2)
+
+**Pour les tableaux**
+
+- [Tableau avec des cellules centrées à l'intérieur](#tableau-avec-des-cellules-centrées-à-lintérieur)
+- [Tableau de variations](#tableau-avec-des-cellules-centrées-à-lintérieur)
+- [Tableau de variations et signes](#tableau-de-variations--signes)
+- [Trait plein dans les tableaux](#trait-plein-dans-les-tableaux-tkz-tab)
+- [Tableau de signes fonction affine](#tableau-de-signes-fonction-affine)
+- [Tableau de signes fonction affine](#tableau-de-signes-fonction-affine)
+- [Signe d'un produit](#signe-dun-produit)
+- [Signe d'un produit](#signe-dun-quotient)
+
 # Commandes usuelles
 
 ## Un vecteur
 
 les coordonnées du vecteur `$\overrightarrow{AG}$` sont `$\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}$`.
 
-## Un système :
+## Un système
 
 Une représentation paramétrique de la droite `$(AG)$` est `$\begin{cases} x = t \\ y = t \\ z = t \end{cases}$`.
 
@@ -35,7 +60,7 @@ Fin Tant que
 }
 ```
 
-## Tailles :
+## Tailles
 
 `\tiny \scriptsize \footnotesize \small \normalsize \large \Large \LARGE \huge \Huge`
 
@@ -76,7 +101,7 @@ Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 
 # Les tableaux
 
-## épaisseur ligne tableau : 
+## épaisseur ligne tableau
 
 `\renewcommand{\arraystretch}{1.2}`
 
@@ -115,7 +140,7 @@ Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 \end{tikzpicture}
 ```
 
-## tableau de variations + signes :
+## tableau de variations + signes
 
 ```latex
 \begin{tikzpicture}
@@ -125,11 +150,11 @@ Avec le package enumitem ( `\usepackage[shortlabels]{enumitem}` ) :
 \end{tikzpicture}
 ```
 
-## Trait plein dans les tableaux tkz-tab :
+## Trait plein dans les tableaux tkz-tab
 
 `\tikzset{t style/.append style ={solid}}`
 
-## Tableau de signes fonction affine :
+## Tableau de signes fonction affine
 
 ```latex
 \begin{tikzpicture}
@@ -153,7 +178,7 @@ Mode help pour tkz-tab (voir les noeuds) + exemple d'utilisation :
 \end{tikzpicture}
 ```
 
-## Signe d'un produit :
+## Signe d'un produit
 
 ```latex
 \begin{center}
@@ -167,7 +192,7 @@ Mode help pour tkz-tab (voir les noeuds) + exemple d'utilisation :
 \end{center}
 ```
 
-## Signe d'un quotient :
+## Signe d'un quotient
 
 ```latex
 \begin{center}
